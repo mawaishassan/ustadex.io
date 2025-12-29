@@ -285,5 +285,32 @@
 })();
 </script>
 
+  <script>
+(function () {
+  function sendHeight() {
+    const height = document.documentElement.scrollHeight;
+    parent.postMessage(
+      { type: "USTADEX_IFRAME_HEIGHT", height },
+      "*"
+    );
+  }
+
+  // Send height on load
+  window.addEventListener("load", sendHeight);
+
+  // Send height on resize
+  window.addEventListener("resize", sendHeight);
+
+  // Send height when content changes (charts, tabs, async loads)
+  const observer = new MutationObserver(sendHeight);
+  observer.observe(document.body, {
+    attributes: true,
+    childList: true,
+    subtree: true
+  });
+})();
+</script>
+
+
 </body>
 </html>
