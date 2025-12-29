@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Ustadex Analytics – Universities</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Custom scoped styles -->
+<style>
+#ustadex-root .card-hover {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#ustadex-root .card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+}
+#ustadex-root .tab-btn {
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all .25s ease;
+}
+#ustadex-root .tab-btn.active {
+  background: #2563eb;
+  color: #fff;
+}
+#ustadex-root .tab-btn:hover {
+  transform: translateY(-2px);
+}
+#ustadex-root .fade-enter {
+  animation: fadeInUp .35s ease forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<div id="ustadex-root">
+
+<!-- HERO -->
+<section class="py-28 bg-gradient-to-br from-blue-50 to-white text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
+      Turn University Data<br>
+      <span class="text-blue-600">into Confident Decisions</span>
+    </h1>
+
+    <p class="mt-6 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      Ustadex Analytics connects academic, governance, admissions, examination,
+      HR, research, and financial data—wherever it lives—and transforms it into
+      actionable intelligence for universities.
+    </p>
+
+    <div class="mt-10 flex justify-center gap-4 flex-wrap">
+      <button class="px-7 py-4 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
+        Request Demo
+      </button>
+      <button class="px-7 py-4 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">
+        View Dashboards
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 STEP PROCESS -->
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-14 text-center">
+      How Ustadex Works in Universities
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="bg-white p-8 rounded-2xl card-hover">
+        <div class="text-blue-600 text-3xl font-bold">01</div>
+        <h3 class="mt-3 font-semibold text-lg">Data Ingestion</h3>
+        <p class="mt-3 text-slate-600">
+          Securely connect ERP, LMS, SIS, examinations, HR, and finance systems.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl card-hover">
+        <div class="text-blue-600 text-3xl font-bold">02</div>
+        <h3 class="mt-3 font-semibold text-lg">Intelligent Insights</h3>
+        <p class="mt-3 text-slate-600">
+          Automatically detect academic and governance patterns.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl card-hover">
+        <div class="text-blue-600 text-3xl font-bold">03</div>
+        <h3 class="mt-3 font-semibold text-lg">Enhance with Questions</h3>
+        <p class="mt-3 text-slate-600">
+          Ask natural language questions and explore answers instantly.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl card-hover">
+        <div class="text-blue-600 text-3xl font-bold">04</div>
+        <h3 class="mt-3 font-semibold text-lg">Decide with Confidence</h3>
+        <p class="mt-3 text-slate-600">
+          Share dashboards with leadership and statutory bodies.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAKEHOLDER VIEW -->
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Stakeholder View</h2>
+    <p class="text-slate-600 mb-10 max-w-2xl">
+      Each stakeholder sees insights tailored to their responsibilities.
+    </p>
+
+    <div class="flex gap-3 flex-wrap mb-10">
+      <button class="tab-btn active" data-role="vc">Vice Chancellor</button>
+      <button class="tab-btn" data-role="registrar">Registrar</button>
+      <button class="tab-btn" data-role="admissions">Admissions</button>
+      <button class="tab-btn" data-role="exams">Examinations</button>
+      <button class="tab-btn" data-role="oric">ORIC</button>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div id="ustadex-features" class="bg-slate-50 p-10 rounded-2xl fade-enter">
+        <h3 id="ustadex-title" class="text-xl font-semibold mb-4">
+          Vice Chancellor Dashboard
+        </h3>
+        <ul id="ustadex-list" class="list-disc pl-5 text-slate-600 space-y-3"></ul>
+      </div>
+
+      <div id="ustadex-visual" class="bg-slate-50 p-8 rounded-2xl fade-enter">
+        <canvas id="ustadex-chart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-300 py-16">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="text-white font-semibold mb-3">Ustadex Analytics</h3>
+      <p class="text-sm leading-relaxed">
+        Education-focused analytics platform for leadership,
+        governance, and institutional growth.
+      </p>
+    </div>
+    <div>
+      <h3 class="text-white font-semibold mb-3">Built For</h3>
+      <p class="text-sm">Vice Chancellors & Rectors</p>
+      <p class="text-sm">Registrar & Examination Offices</p>
+      <p class="text-sm">Admissions & ORIC</p>
+      <p class="text-sm">QEC & QA Teams</p>
+    </div>
+    <div>
+      <h3 class="text-white font-semibold mb-3">Capabilities</h3>
+      <p class="text-sm">Academic Analytics</p>
+      <p class="text-sm">Governance & HR Insights</p>
+      <p class="text-sm">Research Dashboards</p>
+      <p class="text-sm">Accreditation Reporting</p>
+    </div>
+  </div>
+
+  <div class="mt-10 text-center text-xs text-slate-500">
+    © 2025 Ustadex Analytics — Clarity for Academic Leadership
+  </div>
+</footer>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+(function () {
+  function loadChartJS(cb) {
+    if (window.Chart) return cb();
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/chart.js";
+    s.onload = cb;
+    document.body.appendChild(s);
+  }
+
+  loadChartJS(() => {
+    const ctx = document.getElementById("ustadex-chart");
+    let chart;
+
+    function render(cfg) {
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: cfg.labels,
+          datasets: [{
+            label: cfg.label,
+            data: cfg.values,
+            backgroundColor: "rgba(37,99,235,.2)",
+            borderColor: "#2563eb",
+            borderWidth: 2,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          animation: { duration: 600, easing: "easeOutQuart" },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    const roles = {
+      vc: {
+        title: "Vice Chancellor Dashboard",
+        list: [
+          "University-wide KPIs & trends",
+          "Enrollment, retention & graduation analysis",
+          "Strategic risks & early warnings",
+          "Policy impact over time"
+        ],
+        chart: { label: "Enrollment", labels: ["2019","2020","2021","2022","2023","2024"], values: [4200,4500,4700,5200,5800,6100] }
+      },
+      registrar: {
+        title: "Registrar Office Dashboard",
+        list: [
+          "Faculty & staff strength",
+          "Appointments & statutes tracking",
+          "Council & board governance"
+        ],
+        chart: { label: "Staff", labels: ["Faculty","Admin","Support"], values: [420,260,180] }
+      },
+      admissions: {
+        title: "Admissions Dashboard",
+        list: [
+          "Applications vs enrollments",
+          "Merit vs CGPA correlation",
+          "Intake optimization"
+        ],
+        chart: { label: "Admissions", labels: ["Applied","Enrolled"], values: [8200,6100] }
+      },
+      exams: {
+        title: "Examinations Dashboard",
+        list: [
+          "Registered vs appeared",
+          "Pass/fail trends",
+          "Eligibility enforcement"
+        ],
+        chart: { label: "Results", labels: ["Pass","Fail"], values: [4800,900] }
+      },
+      oric: {
+        title: "ORIC Dashboard",
+        list: [
+          "Research output",
+          "Grants & funding",
+          "Commercialization"
+        ],
+        chart: { label: "Publications", labels: ["2019","2020","2021","2022","2023"], values: [120,150,180,210,260] }
+      }
+    };
+
+    function update(role) {
+      const r = roles[role];
+      document.getElementById("ustadex-title").textContent = r.title;
+      document.getElementById("ustadex-list").innerHTML =
+        r.list.map(i => `<li>${i}</li>`).join("");
+      render(r.chart);
+    }
+
+    update("vc");
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        update(btn.dataset.role);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
