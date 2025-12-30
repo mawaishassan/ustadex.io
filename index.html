@@ -88,6 +88,7 @@
       <button class="tab-btn" data-role="admissions">Admissions</button>
       <button class="tab-btn" data-role="exams">Examinations</button>
       <button class="tab-btn" data-role="oric">ORIC</button>
+      <button class="tab-btn" data-role="finance">Finance</button>
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -114,36 +115,24 @@
   </div>
 </section>
 
-<!-- DASHBOARD PREVIEW STRIP -->
-<section class="py-20 bg-white overflow-x-auto">
-  <div class="flex gap-6 px-6 min-w-max">
-    <img src="images/dashboard-vc.png" class="h-[320px] rounded-xl shadow-lg">
-    <img src="images/dashboard-registrar.png" class="h-[320px] rounded-xl shadow-lg">
-    <img src="images/dashboard-admissions.png" class="h-[320px] rounded-xl shadow-lg">
-    <img src="images/dashboard-exams.png" class="h-[320px] rounded-xl shadow-lg">
-    <img src="images/dashboard-oric.png" class="h-[320px] rounded-xl shadow-lg">
-    <img src="images/dashboard-finance.png" class="h-[320px] rounded-xl shadow-lg">
-  </div>
-</section>
-
-<!-- FINANCIAL ANALYTICS -->
-<section class="py-24 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-      Financial & Revenue Intelligence
+<!-- DASHBOARD PREVIEW GRID (FIXED WITH CDN IMAGES) -->
+<section class="py-20 bg-white">
+  <div class="max-w-full overflow-x-auto px-6">
+    <h2 class="text-3xl font-bold mb-8 max-w-6xl mx-auto">
+      Complete Dashboard Previews
     </h2>
 
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <ul class="text-slate-600 space-y-4 text-lg">
-        <li>Fee collection vs enrollment trends</li>
-        <li>Outstanding dues by semester</li>
-        <li>Scholarship & concession impact</li>
-        <li>Revenue leakage detection</li>
-        <li>Cash flow forecasting</li>
-      </ul>
-      <div class="bg-white p-8 rounded-2xl">
-        <canvas id="financeChart"></canvas>
-      </div>
+    <div class="flex gap-6 min-w-max pb-4">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4"
+           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
+           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221"
+           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
     </div>
   </div>
 </section>
@@ -158,43 +147,86 @@ let chart;
 const ctx = document.getElementById('roleChart');
 
 const roles = {
-  vc:{title:'Vice Chancellor',list:['KPIs','Enrollment trends','Strategic risk'],type:'line',
-    labels:['2019','2020','2021','2022','2023'],values:[4200,4500,4800,5400,6100]},
-  registrar:{title:'Registrar',list:['Appointments','Statutes','Councils'],type:'bar',
-    labels:['Faculty','Admin','Support'],values:[420,260,180]},
-  admissions:{title:'Admissions',list:['Pipeline','Merit vs CGPA','Yield'],type:'bar',
-    labels:['Applied','Admitted','Enrolled'],values:[8200,6800,6100]},
-  exams:{title:'Examinations',list:['Pass','Fail','Probation'],type:'bar',
-    labels:['2021','2022','2023'],values:[4800,5100,5300]},
-  oric:{title:'ORIC',list:['Publications','Grants','Growth'],type:'line',
-    labels:['2019','2020','2021','2022','2023'],values:[120,150,180,210,260]}
+  vc:{
+    title:'Vice Chancellor Dashboard',
+    list:['University KPIs','Enrollment trends','Strategic risk indicators'],
+    type:'line',
+    labels:['2019','2020','2021','2022','2023'],
+    values:[4200,4500,4800,5400,6100]
+  },
+  registrar:{
+    title:'Registrar Dashboard',
+    list:['Faculty composition','Administrative strength','Governance structure'],
+    type:'pie',
+    labels:['Faculty','Admin','Support'],
+    values:[420,260,180]
+  },
+  admissions:{
+    title:'Admissions Dashboard',
+    list:['Application pipeline','Merit vs CGPA','Yield analysis'],
+    type:'bar',
+    labels:['Applied','Admitted','Enrolled'],
+    values:[8200,6800,6100]
+  },
+  exams:{
+    title:'Examinations Dashboard',
+    list:['Pass rate','Fail rate','Probation trends'],
+    type:'bar',
+    labels:['2021','2022','2023'],
+    values:[4800,5100,5300]
+  },
+  oric:{
+    title:'ORIC Dashboard',
+    list:['Publications','Research grants','Growth trajectory'],
+    type:'line',
+    labels:['2019','2020','2021','2022','2023'],
+    values:[120,150,180,210,260]
+  },
+  finance:{
+    title:'Finance Dashboard',
+    list:['Fee collection','Outstanding dues','Cash flow forecast'],
+    type:'line',
+    labels:['Sem 1','Sem 2','Sem 3','Sem 4','Sem 5'],
+    values:[120,140,160,180,210]
+  }
 };
 
-function render(role){
+function render(roleKey){
+  const r = roles[roleKey];
   if(chart) chart.destroy();
+
   chart = new Chart(ctx,{
-    type:roles[role].type,
-    data:{labels:roles[role].labels,
-      datasets:[{data:roles[role].values,label:roles[role].title,
-        backgroundColor:'rgba(37,99,235,.2)',borderColor:'#2563eb',borderWidth:2}]}
+    type:r.type,
+    data:{
+      labels:r.labels,
+      datasets:[{
+        label:r.title,
+        data:r.values,
+        backgroundColor:[
+          'rgba(37,99,235,0.5)',
+          'rgba(99,102,241,0.5)',
+          'rgba(14,165,233,0.5)'
+        ],
+        borderColor:'#2563eb',
+        borderWidth:2,
+        fill:true
+      }]
+    },
+    options:{responsive:true}
   });
-  roleTitle.textContent = roles[role].title;
-  roleList.innerHTML = roles[role].list.map(i=>`<li>${i}</li>`).join('');
+
+  roleTitle.textContent = r.title;
+  roleList.innerHTML = r.list.map(i=>`<li>${i}</li>`).join('');
 }
+
 render('vc');
 
 document.querySelectorAll('.tab-btn').forEach(b=>{
-  b.onclick=()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active'); render(b.dataset.role);}
-});
-
-new Chart(document.getElementById('financeChart'),{
-  type:'line',
-  data:{labels:['Sem1','Sem2','Sem3','Sem4','Sem5'],
-    datasets:[
-      {label:'Collected',data:[120,140,160,180,210],fill:true},
-      {label:'Outstanding',data:[80,70,65,55,45],fill:true}
-    ]}
+  b.onclick=()=>{
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    render(b.dataset.role);
+  };
 });
 </script>
 
