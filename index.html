@@ -1,234 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Ustadex Analytics – Education</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ustadex Analytics</title>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#2563EB'
+          }
+        }
+      }
+    }
+  </script>
 
-<style>
-.card-hover { transition: all .25s ease; }
-.card-hover:hover { transform: translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,.08); }
+  <style>
+    /* HERO IMAGE */
+    .dashboard-3d {
+      transform:
+        perspective(1200px)
+        rotateY(-6deg)
+        rotateX(3deg)
+        scale(1.1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dashboard-3d:hover {
+      transform:
+        perspective(1200px)
+        rotateY(-6deg)
+        rotateX(3deg)
+        scale(1.18);
+    }
+    @media (max-width: 1024px) {
+      .dashboard-3d { transform: none; }
+    }
 
-.tab-btn {
-  border:2px solid #2563eb;
-  color:#2563eb;
-  padding:10px 20px;
-  border-radius:999px;
-  font-weight:600;
-  transition:all .25s ease;
-}
-.tab-btn.active { background:#2563eb;color:#fff; }
+    /* FLIP CARDS */
+    .flip-card { perspective: 1200px; }
+    .flip-inner {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+      position: relative;
+      height: 100%;
+    }
+    .flip-card:hover .flip-inner { transform: rotateY(180deg); }
 
-.fade-enter { animation:fadeIn .35s ease forwards; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
-</style>
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+    }
+    .flip-back { transform: rotateY(180deg); }
+  </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-white text-gray-800 antialiased">
 
-<!-- HERO -->
-<section class="py-28 bg-gradient-to-br from-blue-50 to-white text-center">
-  <div class="max-w-5xl mx-auto px-6">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
-      Turn University Data<br>
-      <span class="text-blue-600">into Confident Decisions</span>
-    </h1>
-    <p class="mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
-      Ustadex Analytics connects academic, governance, admissions, examinations,
-      HR, research, and finance data into one intelligence platform for universities.
-    </p>
+<!-- ================= HERO ================= -->
+<section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-6 py-28">
+    <div class="grid lg:grid-cols-2 gap-24 items-center">
+
+      <div class="max-w-xl">
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+          Turn University Data<br />
+          <span class="text-brand">into Confident Decisions</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-gray-600">
+          A unified analytics platform helping universities anticipate risks,
+          improve outcomes, and govern proactively.
+        </p>
+        <div class="mt-10 flex gap-4">
+          <button class="bg-brand text-white px-8 py-4 rounded-xl shadow-md">
+            Request a Demo
+          </button>
+          <button class="border border-brand text-brand px-8 py-4 rounded-xl">
+            Explore Platform
+          </button>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center">
+        <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
+          <img src="dashboard.png" class="w-full object-cover" />
+        </div>
+        <div class="absolute -inset-12 bg-blue-500/10 blur-3xl -z-10"></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- ================= ROLES ================= -->
 <section class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">
-      How Ustadex Works in Universities
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-16">
+      One Platform. Every Stakeholder Empowered.
     </h2>
-    <div class="grid md:grid-cols-4 gap-8">
-      <div class="bg-white p-8 rounded-2xl card-hover">
-        <div class="text-blue-600 text-3xl font-bold">01</div>
-        <h3 class="mt-3 font-semibold">Data Ingestion</h3>
-        <p class="mt-3 text-slate-600">Connect ERP, LMS, SIS, Exams & Finance.</p>
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- University Leadership -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">University Leadership</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Institution-wide visibility across academics, finance, quality,
+              and research to support confident, defensible decisions.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “I don’t want reports. I want foresight.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
       </div>
-      <div class="bg-white p-8 rounded-2xl card-hover">
-        <div class="text-blue-600 text-3xl font-bold">02</div>
-        <h3 class="mt-3 font-semibold">Intelligent Insights</h3>
-        <p class="mt-3 text-slate-600">Automatic academic & governance patterns.</p>
+
+      <!-- Admission Office -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Admission Office</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Predict student success and risk early to improve intake quality,
+              retention, and long-term academic outcomes.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “The best admission decision is the one we never regret.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
       </div>
-      <div class="bg-white p-8 rounded-2xl card-hover">
-        <div class="text-blue-600 text-3xl font-bold">03</div>
-        <h3 class="mt-3 font-semibold">Ask Questions</h3>
-        <p class="mt-3 text-slate-600">Natural language analytics.</p>
+
+      <!-- Registrar & Academics -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Registrar & Academics</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              End-to-end academic lifecycle visibility to reduce bottlenecks,
+              ensure compliance, and manage peak semesters smoothly.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “I want control — especially during peak semesters.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
       </div>
-      <div class="bg-white p-8 rounded-2xl card-hover">
-        <div class="text-blue-600 text-3xl font-bold">04</div>
-        <h3 class="mt-3 font-semibold">Decide Confidently</h3>
-        <p class="mt-3 text-slate-600">Share dashboards with leadership.</p>
+
+      <!-- Deans & HoD -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Deans & HoD</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Program-level and faculty-level intelligence to identify
+              performance gaps and intervene before outcomes decline.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “Show me where to intervene — and why.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
       </div>
+
+      <!-- Finance and Dues -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Finance and Dues</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Real-time visibility into fee collection, dues, and cash-flow
+              risks aligned with academic and enrollment activity.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “If I can’t see financial risk early, I can’t manage it.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- Scholarship & Financial Aid -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Scholarship & Financial Aid</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Transparent, data-driven allocation of scholarships and aid to
+              ensure fairness, impact, and student retention.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “Support the right student at the right time.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- QEC -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">QEC</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Continuous quality monitoring with early signals on learning
+              outcomes, teaching effectiveness, and compliance gaps.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “Quality is not an event. It’s a continuous signal.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1581092919534-3a6c1b58d1f5"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- ORIC & Research -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">ORIC & Research</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Centralized research intelligence covering publications, grants,
+              innovation output, and institutional research impact.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “Research shouldn’t just be counted — it should be steered.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty and Students -->
+      <div class="flip-card h-80">
+        <div class="flip-inner">
+          <div class="flip-front bg-white p-8 shadow-lg">
+            <h3 class="text-xl font-semibold">Faculty and Students</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Early alerts, engagement insights, and outcome visibility to
+              support teaching effectiveness and student success.
+            </p>
+            <p class="mt-6 text-brand font-semibold">
+              “Notice and support students before they fall.”
+            </p>
+          </div>
+          <div class="flip-back">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1"
+                 class="w-full h-full object-cover rounded-2xl">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<!-- STAKEHOLDER VIEW -->
-<section class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Stakeholder View</h2>
-
-    <div class="flex gap-3 flex-wrap mb-10">
-      <button class="tab-btn active" data-role="vc">Vice Chancellor</button>
-      <button class="tab-btn" data-role="registrar">Registrar</button>
-      <button class="tab-btn" data-role="admissions">Admissions</button>
-      <button class="tab-btn" data-role="exams">Examinations</button>
-      <button class="tab-btn" data-role="oric">ORIC</button>
-      <button class="tab-btn" data-role="finance">Finance</button>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div class="bg-slate-50 p-10 rounded-2xl fade-enter">
-        <h3 id="roleTitle" class="text-xl font-semibold mb-4"></h3>
-        <ul id="roleList" class="list-disc pl-5 text-slate-600 space-y-3"></ul>
-      </div>
-      <div class="bg-slate-50 p-8 rounded-2xl fade-enter">
-        <canvas id="roleChart"></canvas>
-      </div>
-    </div>
+<!-- ================= ROLES (ALT) ================= -->
+</div>
   </div>
 </section>
 
-<!-- DEMO VIDEO -->
-<section class="py-24 bg-slate-50">
+<!-- ================= VIDEO ================= -->
+<section class="py-24 bg-gray-50">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Watch Ustadex in Action</h2>
-    <div class="relative pb-[56.25%] rounded-2xl overflow-hidden shadow-xl">
-      <iframe class="absolute inset-0 w-full h-full"
+    <h2 class="text-4xl font-bold mb-6">See Ustadex in Action</h2>
+    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+      <iframe class="w-full h-full"
         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
         allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
-<!-- DASHBOARD PREVIEW GRID (FIXED WITH CDN IMAGES) -->
-<section class="py-20 bg-white">
-  <div class="max-w-full overflow-x-auto px-6">
-    <h2 class="text-3xl font-bold mb-8 max-w-6xl mx-auto">
-      Complete Dashboard Previews
-    </h2>
-
-    <div class="flex gap-6 min-w-max pb-4">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
-      <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4"
-           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
-           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
-      <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221"
-           class="h-[320px] w-[520px] object-cover rounded-xl shadow-lg">
-    </div>
+<!-- ================= CTA ================= -->
+<section class="bg-brand text-white py-20">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold">See your university before problems appear</h2>
+    <p class="mt-4 text-lg opacity-90">
+      Experience predictive governance with Ustadex Analytics.
+    </p>
+    <button class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold">
+      Request a Live Demo
+    </button>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-slate-900 text-slate-300 py-16 text-center">
-  © 2025 Ustadex Analytics — Clarity for Academic Leadership
+<!-- ================= FOOTER ================= -->
+<footer class="py-8 text-center text-gray-500 text-sm">
+  © 2025 Ustadex Analytics. All rights reserved.
 </footer>
-
-<script>
-let chart;
-const ctx = document.getElementById('roleChart');
-
-const roles = {
-  vc:{
-    title:'Vice Chancellor Dashboard',
-    list:['University KPIs','Enrollment trends','Strategic risk indicators'],
-    type:'line',
-    labels:['2019','2020','2021','2022','2023'],
-    values:[4200,4500,4800,5400,6100]
-  },
-  registrar:{
-    title:'Registrar Dashboard',
-    list:['Faculty composition','Administrative strength','Governance structure'],
-    type:'pie',
-    labels:['Faculty','Admin','Support'],
-    values:[420,260,180]
-  },
-  admissions:{
-    title:'Admissions Dashboard',
-    list:['Application pipeline','Merit vs CGPA','Yield analysis'],
-    type:'bar',
-    labels:['Applied','Admitted','Enrolled'],
-    values:[8200,6800,6100]
-  },
-  exams:{
-    title:'Examinations Dashboard',
-    list:['Pass rate','Fail rate','Probation trends'],
-    type:'bar',
-    labels:['2021','2022','2023'],
-    values:[4800,5100,5300]
-  },
-  oric:{
-    title:'ORIC Dashboard',
-    list:['Publications','Research grants','Growth trajectory'],
-    type:'line',
-    labels:['2019','2020','2021','2022','2023'],
-    values:[120,150,180,210,260]
-  },
-  finance:{
-    title:'Finance Dashboard',
-    list:['Fee collection','Outstanding dues','Cash flow forecast'],
-    type:'line',
-    labels:['Sem 1','Sem 2','Sem 3','Sem 4','Sem 5'],
-    values:[120,140,160,180,210]
-  }
-};
-
-function render(roleKey){
-  const r = roles[roleKey];
-  if(chart) chart.destroy();
-
-  chart = new Chart(ctx,{
-    type:r.type,
-    data:{
-      labels:r.labels,
-      datasets:[{
-        label:r.title,
-        data:r.values,
-        backgroundColor:[
-          'rgba(37,99,235,0.5)',
-          'rgba(99,102,241,0.5)',
-          'rgba(14,165,233,0.5)'
-        ],
-        borderColor:'#2563eb',
-        borderWidth:2,
-        fill:true
-      }]
-    },
-    options:{responsive:true}
-  });
-
-  roleTitle.textContent = r.title;
-  roleList.innerHTML = r.list.map(i=>`<li>${i}</li>`).join('');
-}
-
-render('vc');
-
-document.querySelectorAll('.tab-btn').forEach(b=>{
-  b.onclick=()=>{
-    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    render(b.dataset.role);
-  };
-});
-</script>
 
 </body>
 </html>
