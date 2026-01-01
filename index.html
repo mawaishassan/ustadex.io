@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ustadex Analytics</title>
+  <title>Ustadex Analytics - Data That Adapts to How Leaders Think</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,26 +19,6 @@
       }
     }
   </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    document.querySelectorAll(".step-card").forEach(card => {
-      observer.observe(card);
-    });
-  });
-</script>
 
   <style>
     /* HERO IMAGE */
@@ -61,162 +41,48 @@
       .dashboard-3d { transform: none; }
     }
 
-
-  .step-card {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .step-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .step-inner {
-    background: #ffffff;
-    border-radius: 1.75rem;
-    padding: 2.5rem;
-    border: 1px solid #e5e7eb;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-  }
-
-  .step-inner:hover {
-    transform: translateY(-6px);
-  }
-
-  /* Shared header */
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .icon-box {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #2563EB;
-  }
-
-  .step-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-
-  .step-text {
-    color: #4b5563;
-    line-height: 1.6;
-  }
-
-  /* Step 3 emphasis (same structure, more presence) */
-  .step-focus .step-inner {
-    border-color: rgba(37, 99, 235, 0.4);
-    box-shadow:
-      0 20px 40px -20px rgba(37, 99, 235, 0.5);
-    transform: translateY(-6px);
-  }
-
-  .shift-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #2563EB;
-    margin-bottom: 0.5rem;
-  }
-
-    /* ROLE CARDS */
-    .role-card {
+    /* Industry Cards */
+    .industry-card {
       background: white;
       padding: 2rem;
-      border-radius: 1rem;
+      border-radius: 1.25rem;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e5e7eb;
+      text-decoration: none;
+      display: block;
     }
-    .role-card:hover {
-      transform: translateY(-4px);
+    .industry-card:hover {
+      transform: translateY(-6px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    /*shift focus outline for accessibility*/
-  .question-card {
-    position: relative;
-    padding: 2rem 2rem 2rem 2.5rem;
-    border-radius: 1.25rem;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    font-weight: 500;
-    color: #1f2937; /* gray-800 */
-    background: linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #f8fbff 100%
-    );
-    border: 1px solid rgba(37, 99, 235, 0.12);
-    box-shadow: 0 12px 30px -18px rgba(37, 99, 235, 0.35);
-    transition:
-      transform 0.35s ease,
-      box-shadow 0.35s ease,
-      border-color 0.35s ease;
-  }
+    .industry-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
 
-  /* Left accent bar */
-  .question-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 1.25rem;
-    bottom: 1.25rem;
-    width: 4px;
-    border-radius: 999px;
-    background: linear-gradient(
-      to bottom,
-      #2563EB,
-      #60A5FA
-    );
-  }
+    /* Feature Cards */
+    .feature-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-  .question-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 50px -20px rgba(37, 99, 235, 0.45);
-    border-color: rgba(37, 99, 235, 0.35);
-  }
-
-  /*Roles*/
-    .heading-accent {
-    position: relative;
-    display: inline-block;
-  }
-  .heading-accent::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 40%;
-    height: 3px;
-    border-radius: 999px;
-    background: linear-gradient(to right, #3b82f6, #22c55e);
-  }
-
-  .accent-bar {
-    border-left: 4px solid transparent;
-    border-image: linear-gradient(to bottom, #3b82f6, #22c55e) 1;
-  }
-
+    .feature-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 
@@ -229,30 +95,239 @@
 
     <div class="max-w-xl">
       <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-  Ustadex  <span class="text-brand">adapts</span>  data
-  to the way <span class="text-brand">leaders think</span>.
-</h1>
-  <p class="mt-6 text-lg md:text-xl text-gray-600">
-          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">universities</span> anticipate risks,
-          improve outcomes, and govern proactively.
+        Every decision begins with the <span class="text-brand">right question</span>.
+      </h1>
+      <p class="mt-6 text-2xl font-semibold text-brand">
+        Ustadex adapts data to the way leaders think.
+      </p>
+      <p class="mt-6 text-lg md:text-xl text-gray-600">
+        A unified analytics platform that transforms how leaders interact with data. 
+        Start with your question, not a dashboard. Explore data your way, 
+        make decisions with clarity and confidence.
+      </p>
+      <div class="mt-10 flex gap-4">
+        <button class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          Request a Demo
+        </button>
+        <a href="#industries" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors inline-block text-center">
+          Explore Industries
+        </a>
+      </div>
+    </div>
+
+    <div class="relative flex justify-center">
+      <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
+        <img src="hero_image_home.png" class="w-full object-cover" alt="Ustadex Analytics Dashboard" />
+      </div>
+      <div class="absolute -inset-12 bg-blue-500/10 blur-3xl -z-10"></div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE CHALLENGE ================= -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight text-center mb-12">
+      The Challenge: Data That <span class="text-brand">Restricts</span> Instead of <span class="text-brand">Supports</span>
+    </h2>
+    
+    <div class="space-y-8 text-lg text-gray-700 leading-relaxed">
+      <p>
+        When leadership makes a decision, it is rarely about the past. 
+        It is about shaping the future — strategy, stability, quality, direction.
+      </p>
+      <p>
+        Yet most data reaches leadership in the form of <strong>fixed reports</strong> and 
+        <strong>predefined dashboards</strong>. Those reports answer <strong>past questions</strong>, 
+        not the question leadership is thinking about <em>right now</em>.
+      </p>
+      <p class="text-xl font-semibold text-gray-900">
+        So while the data exists, it often restricts thinking instead of supporting it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE SOLUTION ================= -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight text-center mb-4">
+      The Solution: <span class="text-brand">Question-Driven</span> Exploration
+    </h2>
+    <p class="text-xl text-center text-gray-600 mb-16">
+      Ustadex was built to change this relationship between leaders and data.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+        <div class="text-4xl mb-4">❌</div>
+        <h3 class="text-2xl font-bold mb-4">Traditional Approach</h3>
+        <p class="text-gray-700">
+          Start with dashboards. Adapt your thinking to predefined reports. 
+          Wait for new reports when questions change.
         </p>
-        <div class="mt-10 flex gap-4">
-          <button class="bg-brand text-white px-8 py-4 rounded-xl shadow-md">
-            Request a Demo
-          </button>
-          <button class="border border-brand text-brand px-8 py-4 rounded-xl">
-            Explore Platform
-          </button>
-        </div>
       </div>
 
-
-      <div class="relative flex justify-center">
-        <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
-          <img src="hero_image_university.png" class="w-full object-cover" />
-        </div>
-        <div class="absolute -inset-12 bg-blue-500/10 blur-3xl -z-10"></div>
+      <div class="feature-card bg-brand text-white p-8 rounded-2xl shadow-lg">
+        <div class="text-4xl mb-4">✅</div>
+        <h3 class="text-2xl font-bold mb-4">Ustadex Approach</h3>
+        <p class="opacity-90">
+          Start with your question. Explore data from multiple perspectives. 
+          Adapt reports to how you think. All without technical experts.
+        </p>
       </div>
+    </div>
+
+    <div class="mt-16 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-8">What You Can Do</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Look at data from multiple perspectives</h4>
+            <p class="text-gray-600">Rotate and explore based on how your understanding evolves</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Identify patterns static reports can't reveal</h4>
+            <p class="text-gray-600">Discover insights that predefined dashboards miss</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Arrive at decisions with clarity</h4>
+            <p class="text-gray-600">Make confident choices backed by data exploration</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">No technical experts needed</h4>
+            <p class="text-gray-600">Explore data independently, without waiting for new reports</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+<section id="industries" class="py-16 bg-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+      Built for <span class="text-brand">Every Industry</span>
+    </h2>
+    <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+      Ustadex adapts to how leaders think across different industries. 
+      Explore how it works for your sector.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- University -->
+      <a href="university_home.html" class="industry-card group">
+        <div class="industry-icon bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Education</h3>
+        <p class="text-gray-600 mb-4">
+          Anticipate risks, improve outcomes, and govern proactively across academics, finance, and research.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
+
+      <!-- Ecommerce -->
+      <a href="ecommerce_home.html" class="industry-card group">
+        <div class="industry-icon bg-purple-100 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Ecommerce</h3>
+        <p class="text-gray-600 mb-4">
+          Anticipate trends, optimize operations, and grow profitably with predictive analytics.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
+
+      <!-- Retail -->
+      <a href="retail_home.html" class="industry-card group">
+        <div class="industry-icon bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Retail Chains</h3>
+        <p class="text-gray-600 mb-4">
+          Optimize store performance, inventory flow, and drive profitable growth across locations.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
+
+      <!-- Manufacturing -->
+      <a href="manufacturing_home.html" class="industry-card group">
+        <div class="industry-icon bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Manufacturing</h3>
+        <p class="text-gray-600 mb-4">
+          Prevent downtime, optimize operations, and control costs with predictive intelligence.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
+
+      <!-- Healthcare -->
+      <a href="healthcare_home.html" class="industry-card group">
+        <div class="industry-icon bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Healthcare</h3>
+        <p class="text-gray-600 mb-4">
+          Improve patient outcomes, optimize operations, and ensure quality care across facilities.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
+
+      <!-- Food Chains -->
+      <a href="foodchain_home.html" class="industry-card group">
+        <div class="industry-icon bg-rose-100 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Food Chains</h3>
+        <p class="text-gray-600 mb-4">
+          Optimize service speed, reduce waste, and deliver consistent quality across every location.
+        </p>
+        <span class="text-brand font-semibold group-hover:underline">Explore →</span>
+      </a>
 
     </div>
   </div>
@@ -262,6 +337,9 @@
 <section class="py-16 bg-gray-50">
   <div class="max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
+    <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+      Watch how Ustadex transforms data into actionable insights that adapt to your way of thinking.
+    </p>
     <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
       <iframe class="w-full h-full"
         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -270,336 +348,103 @@
   </div>
 </section>
 
-<!-- ================= LEADERSHIP NARRATIVE ================= -->
-
-
-<section class="py-16 bg-soft relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12">
-      From <span class="text-brand">insight</span> to
-      <span class="text-brand">action</span>
+<!-- ================= VALUE PROPOSITION ================= -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-8">
+      The Real Value: <span class="text-brand">Freedom of Thought</span>
     </h2>
-
-    <!-- Steps -->
-    <div class="relative grid md:grid-cols-3 gap-12 items-start">
-
-      <!-- Arrow 1 -->
-    <div class="hidden md:flex absolute left-[calc(33.333%-1.5rem)] top-1/2 -translate-y-1/2">
-    <svg class="w-6 h-6 text-brand/40" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24">
-          <path d="M9 5l7 7-7 7"></path>
-        </svg>
-      </div>
-
-      <!-- Arrow 2 -->
-      <div class="hidden md:flex absolute left-2/3 top-1/2 -translate-y-1/2 pointer-events-none">
-        <svg class="w-6 h-6 text-brand/40" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24">
-          <path d="M9 5l7 7-7 7"></path>
-        </svg>
-      </div>
-
-      <!-- STEP 1 -->
-      <div class="step-card">
-        <div class="step-inner">
-          <div class="step-header">
-            <div class="icon-box bg-blue-50">
-              <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
-                   viewBox="0 0 24 24">
-                <path d="M12 6v6l4 2"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-              </svg>
-            </div>
-            <span class="step-label">Step 1</span>
-          </div>
-
-          <h3 class="step-title">Leaders Think Forward</h3>
-          <p class="step-text">
-            Leadership focuses on what comes next — admissions strategy,
-            financial stability, academic quality, and research direction.
-          </p>
-        </div>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="step-card">
-        <div class="step-inner">
-          <div class="step-header">
-            <div class="icon-box bg-gray-100">
-              <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
-                   viewBox="0 0 24 24">
-                <path d="M9 17v-2m3 2v-6m3 6v-4"></path>
-                <path d="M7 3h10v18H7z"></path>
-              </svg>
-            </div>
-            <span class="step-label text-gray-400">Step 2</span>
-          </div>
-
-          <h3 class="step-title">Data Looks Backward</h3>
-          <p class="step-text">
-            Most data arrives as static reports and dashboards —
-            explaining what already happened, not what is emerging.
-          </p>
-        </div>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="step-card step-focus">
-        <div class="step-inner">
-          <div class="step-header">
-            <div class="icon-box bg-brand/10">
-              <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
-                   viewBox="0 0 24 24">
-                <path d="M12 3a7 7 0 00-4 12.7V21h8v-5.3A7 7 0 0012 3z"></path>
-              </svg>
-            </div>
-            <span class="step-label text-brand">Step 3: The Shift</span>
-          </div>
-
-          <!-- Micro-label -->
-        
-
-          <h3 class="step-title">
-            <span class="text-brand">Ustadex Aligns the Two</span>
-          </h3>
-
-          <p class="step-text">
-            Ustadex connects data with how leaders think —
-            delivering early signals, predictive insight,
-            and answers to the question being asked right now.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Background Accent -->
-  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-blue-200/30 rounded-full blur-3xl"></div>
-</section>
-
-
-<!-- ================= SHIFT ================= -->
-
-<section class="py-16 bg-soft relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-      With Ustadex, you <span class="text-brand">don’t </span> start with <span class="text-brand">static data</span>
-    </h2>
-
-    <p class="mt-4 text-2xl font-semibold text-brand mb-16">
-      You start with the question leadership is asking
+    <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+      Instead of adapting decisions to reports,<br/>
+      <strong class="text-gray-900">reports adapt to how leadership thinks</strong>.
     </p>
-
-    <!-- Questions Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <div class="question-card accent">
-        What will happen if we change our admission criteria?
-      </div>
-
-      <div class="question-card accent">
-        Where are financial risks likely to emerge next semester?
-      </div>
-
-      <div class="question-card accent">
-        Which academic programs need early intervention?
-      </div>
-
-      <div class="question-card accent">
-        How will fee recovery trends affect cash flow this year?
-      </div>
-
-      <div class="question-card accent">
-        Which students are at risk before results decline?
-      </div>
-
-      <div class="question-card accent">
-        How is our research output shifting across departments?
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Background Accent -->
-  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-blue-200/30 rounded-full blur-3xl"></div>
-</section>
-
-
-<!-- ================= ROLES ================= -->
-<section class="py-16">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-4xl font-bold text-center mb-16">
-      One Platform. <span class="text-brand">Every Stakeholder </span>Empowered.
-    </h2>
-
-    <!-- Accent utilities -->
-    <style>
-      .heading-accent {
-        position: relative;
-        display: inline-block;
-      }
-      .heading-accent::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 42%;
-        height: 3px;
-        border-radius: 999px;
-        background: linear-gradient(to right, #3b82f6, #22c55e);
-      }
-      .accent-bar {
-        border-left: 4px solid transparent;
-        border-image: linear-gradient(to bottom, #3b82f6, #22c55e) 1;
-      }
-    </style>
-
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-
-      <!-- University Leadership -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">University Leadership</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Institution-wide visibility</span>
-          across academics, finance, quality, and research for
-          <span class="text-brand font-medium">confident, defensible decisions</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "I don't want reports. I want foresight."
-        </p>
-      </div>
-
-      <!-- Admission Office -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Admission Office</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Predict student success</span>
-          and risk early to improve
-          <span class="text-brand font-medium">intake quality and retention</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "The best admission decision is the one we never regret."
-        </p>
-      </div>
-
-      <!-- Registrar & Academics -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Registrar & Academics</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">End-to-end academic visibility</span>
-          to reduce bottlenecks and
-          <span class="text-brand font-medium">manage peak semesters</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Control matters most when pressure is highest."
-        </p>
-      </div>
-
-      <!-- Deans & HoD -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Deans & HoD</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Faculty-level intelligence</span>
-          to identify gaps and
-          <span class="text-brand font-medium">intervene before decline</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Show me where to intervene — and why."
-        </p>
-      </div>
-
-      <!-- Finance and Dues -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Finance & Dues</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Real-time fee visibility</span>
-          to detect
-          <span class="text-brand font-medium">cash-flow risk early</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "If I can't see risk early, I can't manage it."
-        </p>
-      </div>
-
-      <!-- Scholarship & Financial Aid -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Scholarships & Aid</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Data-driven allocation</span>
-          ensuring fairness and
-          <span class="text-brand font-medium">student retention</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Support the right student at the right time."
-        </p>
-      </div>
-
-      <!-- QEC -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">QEC</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Continuous quality signals</span>
-          across learning, teaching, and
-          <span class="text-brand font-medium">compliance gaps</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Quality is not an event. It's a signal."
-        </p>
-      </div>
-
-      <!-- ORIC & Research -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">ORIC & Research</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Centralized research insight</span>
-          for grants, publications, and
-          <span class="text-brand font-medium">institutional impact</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Research shouldn't just be counted — it should be steered."
-        </p>
-      </div>
-
-      <!-- Faculty & Students -->
-      <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Faculty & Students</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Early alerts and insights</span>
-          to improve teaching and
-          <span class="text-brand font-medium">student success</span>.
-        </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Notice and support students before they fall."
-        </p>
-      </div>
-
-    </div>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      The real value of Ustadex is not visualization. 
+      It is freedom of thought backed by data. 
+      Start with the real questions leadership already asks — 
+      and experience how decision-making changes when data works <em>with</em> you.
+    </p>
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
 <section class="bg-brand text-white py-16">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold">See your university before problems appear</h2>
-    <p class="mt-4 text-lg opacity-90">
-      Experience predictive governance with Ustadex Analytics.
+    <h2 class="text-4xl font-bold mb-4">Ready to Transform How You Think with Data?</h2>
+    <p class="mt-4 text-lg opacity-90 mb-8">
+      Experience question-driven exploration. See how Ustadex adapts to your way of thinking.
     </p>
-    <button class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold">
-      Request a Live Demo
-    </button>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <button class="bg-white text-brand px-10 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+        Request a Live Demo
+      </button>
+      <button class="border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white/10 transition-colors">
+        Contact Sales
+      </button>
+    </div>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="py-8 text-center text-gray-500 text-sm">
-  © 2025 Ustadex Analytics. All rights reserved.
+<footer class="py-12 bg-gray-900 text-gray-400">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <h3 class="text-white font-bold text-lg mb-4">Ustadex Analytics</h3>
+        <p class="text-sm">
+          Data that adapts to the way leaders think.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Industries</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="university_home.html" class="hover:text-white transition-colors">Education</a></li>
+          <li><a href="ecommerce_home.html" class="hover:text-white transition-colors">Ecommerce</a></li>
+          <li><a href="retail_home.html" class="hover:text-white transition-colors">Retail</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">More Industries</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="manufacturing_home.html" class="hover:text-white transition-colors">Manufacturing</a></li>
+          <li><a href="healthcare_home.html" class="hover:text-white transition-colors">Healthcare</a></li>
+          <li><a href="foodchain_home.html" class="hover:text-white transition-colors">Food Chains</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm">
+      © 2025 Ustadex Analytics. All rights reserved.
+    </div>
+  </div>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    document.querySelectorAll(".feature-card").forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ustadex Analytics - Retail Chains</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#EA580C'
+          }
+        }
+      }
+    }
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    document.querySelectorAll(".step-card").forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+  <style>
+    /* HERO IMAGE */
+    .dashboard-3d {
+      transform:
+        perspective(1200px)
+        rotateY(-6deg)
+        rotateX(3deg)
+        scale(1.1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dashboard-3d:hover {
+      transform:
+        perspective(1200px)
+        rotateY(-6deg)
+        rotateX(3deg)
+        scale(1.18);
+    }
+    @media (max-width: 1024px) {
+      .dashboard-3d { transform: none; }
+    }
+
+
+  .step-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .step-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step-inner {
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(234, 88, 12, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  .step-inner:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Shared header */
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-box {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #EA580C;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-text {
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  /* Step 3 emphasis (same structure, more presence) */
+  .step-focus .step-inner {
+    border-color: rgba(234, 88, 12, 0.4);
+    box-shadow:
+      0 20px 40px -20px rgba(234, 88, 12, 0.5);
+    transform: translateY(-6px);
+  }
+
+  .shift-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #EA580C;
+    margin-bottom: 0.5rem;
+  }
+
+    /* ROLE CARDS */
+    .role-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.1), 0 4px 6px -2px rgba(234, 88, 12, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(234, 88, 12, 0.1);
+    }
+    .role-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(234, 88, 12, 0.2), 0 10px 10px -5px rgba(234, 88, 12, 0.1);
+      border-color: rgba(234, 88, 12, 0.3);
+    }
+
+    /*shift focus outline for accessibility*/
+  .question-card {
+    position: relative;
+    padding: 2rem 2rem 2rem 2.5rem;
+    border-radius: 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #1f2937; /* gray-800 */
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fff7ed 100%
+    );
+    border: 1px solid rgba(234, 88, 12, 0.12);
+    box-shadow: 0 12px 30px -18px rgba(234, 88, 12, 0.35);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+  /* Left accent bar */
+  .question-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to bottom,
+      #EA580C,
+      #FB923C
+    );
+  }
+
+  .question-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px -20px rgba(234, 88, 12, 0.45);
+    border-color: rgba(234, 88, 12, 0.35);
+  }
+
+  /*Roles*/
+    .heading-accent {
+    position: relative;
+    display: inline-block;
+  }
+  .heading-accent::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to right, #EA580C, #F59E0B);
+  }
+
+  .accent-bar {
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(to bottom, #EA580C, #F59E0B) 1;
+  }
+
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+
+<!-- ================= HERO ================= -->
+<section class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid lg:grid-cols-2 gap-24 items-center">
+
+    <div class="max-w-xl">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+  Ustadex  <span class="text-brand">adapts</span>  data
+  to the way <span class="text-brand">leaders think</span>.
+</h1>
+  <p class="mt-6 text-lg md:text-xl text-gray-600">
+          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">retail chains</span> anticipate trends,
+          optimize store performance, and drive profitable growth.
+        </p>
+        <div class="mt-10 flex gap-4">
+          <button class="bg-brand text-white px-8 py-4 rounded-xl shadow-md">
+            Request a Demo
+          </button>
+          <button class="border border-brand text-brand px-8 py-4 rounded-xl">
+            Explore Platform
+          </button>
+        </div>
+      </div>
+
+
+      <div class="relative flex justify-center">
+        <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
+          <img src="hero_image_retail.png" class="w-full object-cover" />
+        </div>
+        <div class="absolute -inset-12 bg-orange-500/10 blur-3xl -z-10"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
+    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+      <iframe class="w-full h-full"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERSHIP NARRATIVE ================= -->
+
+
+<section class="py-16 bg-soft relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12">
+      From <span class="text-brand">insight</span> to
+      <span class="text-brand">action</span>
+    </h2>
+
+    <!-- Steps -->
+    <div class="relative grid md:grid-cols-3 gap-12 items-start">
+
+      <!-- Arrow 1 -->
+    <div class="hidden md:flex absolute left-[calc(33.333%-1.5rem)] top-1/2 -translate-y-1/2">
+    <svg class="w-6 h-6 text-brand/40" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path d="M9 5l7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div class="hidden md:flex absolute left-2/3 top-1/2 -translate-y-1/2 pointer-events-none">
+        <svg class="w-6 h-6 text-brand/40" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path d="M9 5l7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <div class="step-inner">
+          <div class="step-header">
+            <div class="icon-box bg-orange-50">
+              <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
+                   viewBox="0 0 24 24">
+                <path d="M12 6v6l4 2"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+            <span class="step-label">Step 1</span>
+          </div>
+
+          <h3 class="step-title">Leaders Think Forward</h3>
+          <p class="step-text">
+            Leadership focuses on what comes next — store performance,
+            inventory flow, promotions, margins, and customer demand.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <div class="step-inner">
+          <div class="step-header">
+            <div class="icon-box bg-gray-100">
+              <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+                   viewBox="0 0 24 24">
+                <path d="M9 17v-2m3 2v-6m3 6v-4"></path>
+                <path d="M7 3h10v18H7z"></path>
+              </svg>
+            </div>
+            <span class="step-label text-gray-400">Step 2</span>
+          </div>
+
+          <h3 class="step-title">Data Looks Backward</h3>
+          <p class="step-text">
+            Most data arrives as static reports and dashboards —
+            explaining what already happened, not what is emerging.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card step-focus">
+        <div class="step-inner">
+          <div class="step-header">
+            <div class="icon-box bg-brand/10">
+              <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
+                   viewBox="0 0 24 24">
+                <path d="M12 3a7 7 0 00-4 12.7V21h8v-5.3A7 7 0 0012 3z"></path>
+              </svg>
+            </div>
+            <span class="step-label text-brand">Step 3: The Shift</span>
+          </div>
+
+          <!-- Micro-label -->
+        
+
+          <h3 class="step-title">
+            <span class="text-brand">Ustadex Aligns the Two</span>
+          </h3>
+
+          <p class="step-text">
+            Ustadex connects data with how leaders think —
+            delivering early signals, predictive insight,
+            and answers to the question being asked right now.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Background Accent -->
+  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-orange-200/30 rounded-full blur-3xl"></div>
+</section>
+
+
+<!-- ================= SHIFT ================= -->
+
+<section class="py-16 bg-soft relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Heading -->
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      With Ustadex, you <span class="text-brand">don't </span> start with <span class="text-brand">static data</span>
+    </h2>
+
+    <p class="mt-4 text-2xl font-semibold text-brand mb-16">
+      You start with the question leadership is asking
+    </p>
+
+    <!-- Questions Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <div class="question-card accent">
+        Which stores are likely to miss targets next month — and why?
+      </div>
+
+      <div class="question-card accent">
+        Where will stockouts or overstock hurt us before the season ends?
+      </div>
+
+      <div class="question-card accent">
+        Are promotions increasing demand, or just discounting revenue?
+      </div>
+
+      <div class="question-card accent">
+        How is online sales affecting in-store performance across regions?
+      </div>
+
+      <div class="question-card accent">
+        Which products drive margin, not just volume?
+      </div>
+
+      <div class="question-card accent">
+        How is customer demand shifting across channels and locations?
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Background Accent -->
+  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-amber-200/30 rounded-full blur-3xl"></div>
+</section>
+
+
+<!-- ================= ROLES ================= -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-16">
+      One Platform. <span class="text-brand">Every Team </span>Empowered.
+    </h2>
+
+    <!-- Accent utilities -->
+    <style>
+      .heading-accent {
+        position: relative;
+        display: inline-block;
+      }
+      .heading-accent::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 42%;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(to right, #EA580C, #F59E0B);
+      }
+      .accent-bar {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(to bottom, #EA580C, #F59E0B) 1;
+      }
+    </style>
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Leadership -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Leadership</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Real-time view of business health</span>
+          across regions and formats for
+          <span class="text-brand font-medium">strategic, confident decisions</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "I don't want reports. I want foresight."
+        </p>
+      </div>
+
+      <!-- Merchandising -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Merchandising</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Understand which products</span>
+          drive margin, not just volume, to optimize
+          <span class="text-brand font-medium">product mix and profitability</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Show me what drives margin — not just sales."
+        </p>
+      </div>
+
+      <!-- Supply Chain & Operations -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Supply Chain & Operations</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Anticipate stock issues</span>
+          before shelves go empty and
+          <span class="text-brand font-medium">optimize inventory flow</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Prevent problems before they impact customers."
+        </p>
+      </div>
+
+      <!-- Marketing -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Marketing</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Measure promotion impact</span>
+          beyond short-term sales spikes to understand
+          <span class="text-brand font-medium">true demand generation</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Are we creating demand or just discounting?"
+        </p>
+      </div>
+
+      <!-- Finance -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Finance</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Identify margin pressure</span>
+          and cash-flow risk early to make
+          <span class="text-brand font-medium">informed financial decisions</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "If I can't see risk early, I can't manage it."
+        </p>
+      </div>
+
+      <!-- Store Managers -->
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Store Managers</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Clear, actionable signals</span>
+          instead of lagging KPIs to
+          <span class="text-brand font-medium">improve store performance</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Give me signals I can act on — not reports I can't change."
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="bg-brand text-white py-16">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold">See your retail chain before problems appear</h2>
+    <p class="mt-4 text-lg opacity-90">
+      Experience question-driven exploration with Ustadex Analytics.
+    </p>
+    <button class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold">
+      Request a Live Demo
+    </button>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="py-8 text-center text-gray-500 text-sm">
+  © 2025 Ustadex Analytics. All rights reserved.
+</footer>
+
+</body>
+</html>
+
