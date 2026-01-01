@@ -139,23 +139,18 @@
     margin-bottom: 0.5rem;
   }
 
-    /* FLIP CARDS */
-    .flip-card { perspective: 1200px; }
-    .flip-inner {
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-style: preserve-3d;
-      position: relative;
-      height: 100%;
-    }
-    .flip-card:hover .flip-inner { transform: rotateY(180deg); }
-
-    .flip-front, .flip-back {
-      backface-visibility: hidden;
-      position: absolute;
-      inset: 0;
+    /* ROLE CARDS */
+    .role-card {
+      background: white;
+      padding: 2rem;
       border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .flip-back { transform: rotateY(180deg); }
+    .role-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 
     /*shift focus outline for accessibility*/
   .question-card {
@@ -229,7 +224,7 @@
 
 <!-- ================= HERO ================= -->
 <section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
-  <div class="max-w-7xl mx-auto px-6 py-28">
+  <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid lg:grid-cols-2 gap-24 items-center">
 
     <div class="max-w-xl">
@@ -263,14 +258,26 @@
   </div>
 </section>
 
+<!-- ================= VIDEO ================= -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
+    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+      <iframe class="w-full h-full"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
 <!-- ================= LEADERSHIP NARRATIVE ================= -->
 
 
-<section class="py-32 bg-soft relative overflow-hidden">
+<section class="py-16 bg-soft relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-24">
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12">
       From <span class="text-brand">insight</span> to
       <span class="text-brand">action</span>
     </h2>
@@ -376,7 +383,7 @@
 
 <!-- ================= SHIFT ================= -->
 
-<section class="py-28 bg-soft relative overflow-hidden">
+<section class="py-16 bg-soft relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
 
     <!-- Heading -->
@@ -424,7 +431,7 @@
 
 
 <!-- ================= ROLES ================= -->
-<section class="py-24">
+<section class="py-16">
   <div class="max-w-7xl mx-auto px-6">
 
     <h2 class="text-4xl font-bold text-center mb-16">
@@ -456,208 +463,128 @@
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
       <!-- University Leadership -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">University Leadership</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Institution-wide visibility</span>
-              across academics, finance, quality, and research for
-              <span class="text-brand font-medium">confident, defensible decisions</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “I don’t want reports. I want foresight.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">University Leadership</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Institution-wide visibility</span>
+          across academics, finance, quality, and research for
+          <span class="text-brand font-medium">confident, defensible decisions</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "I don't want reports. I want foresight."
+        </p>
       </div>
 
       <!-- Admission Office -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Admission Office</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Predict student success</span>
-              and risk early to improve
-              <span class="text-brand font-medium">intake quality and retention</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “The best admission decision is the one we never regret.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Admission Office</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Predict student success</span>
+          and risk early to improve
+          <span class="text-brand font-medium">intake quality and retention</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "The best admission decision is the one we never regret."
+        </p>
       </div>
 
       <!-- Registrar & Academics -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Registrar & Academics</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">End-to-end academic visibility</span>
-              to reduce bottlenecks and
-              <span class="text-brand font-medium">manage peak semesters</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Control matters most when pressure is highest.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Registrar & Academics</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">End-to-end academic visibility</span>
+          to reduce bottlenecks and
+          <span class="text-brand font-medium">manage peak semesters</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Control matters most when pressure is highest."
+        </p>
       </div>
 
       <!-- Deans & HoD -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Deans & HoD</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Faculty-level intelligence</span>
-              to identify gaps and
-              <span class="text-brand font-medium">intervene before decline</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Show me where to intervene — and why.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Deans & HoD</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Faculty-level intelligence</span>
+          to identify gaps and
+          <span class="text-brand font-medium">intervene before decline</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Show me where to intervene — and why."
+        </p>
       </div>
 
       <!-- Finance and Dues -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Finance & Dues</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Real-time fee visibility</span>
-              to detect
-              <span class="text-brand font-medium">cash-flow risk early</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “If I can’t see risk early, I can’t manage it.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Finance & Dues</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Real-time fee visibility</span>
+          to detect
+          <span class="text-brand font-medium">cash-flow risk early</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "If I can't see risk early, I can't manage it."
+        </p>
       </div>
 
       <!-- Scholarship & Financial Aid -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Scholarships & Aid</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Data-driven allocation</span>
-              ensuring fairness and
-              <span class="text-brand font-medium">student retention</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Support the right student at the right time.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Scholarships & Aid</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Data-driven allocation</span>
+          ensuring fairness and
+          <span class="text-brand font-medium">student retention</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Support the right student at the right time."
+        </p>
       </div>
 
       <!-- QEC -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">QEC</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Continuous quality signals</span>
-              across learning, teaching, and
-              <span class="text-brand font-medium">compliance gaps</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Quality is not an event. It’s a signal.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1581092919534-3a6c1b58d1f5" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">QEC</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Continuous quality signals</span>
+          across learning, teaching, and
+          <span class="text-brand font-medium">compliance gaps</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Quality is not an event. It's a signal."
+        </p>
       </div>
 
       <!-- ORIC & Research -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">ORIC & Research</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Centralized research insight</span>
-              for grants, publications, and
-              <span class="text-brand font-medium">institutional impact</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Research shouldn’t just be counted — it should be steered.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">ORIC & Research</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Centralized research insight</span>
+          for grants, publications, and
+          <span class="text-brand font-medium">institutional impact</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Research shouldn't just be counted — it should be steered."
+        </p>
       </div>
 
       <!-- Faculty & Students -->
-      <div class="flip-card h-80">
-        <div class="flip-inner">
-          <div class="flip-front bg-white p-8 shadow-lg accent-bar transition-all hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-semibold heading-accent">Faculty & Students</h3>
-            <p class="mt-6 text-gray-700 leading-relaxed">
-              <span class="font-medium text-gray-900">Early alerts and insights</span>
-              to improve teaching and
-              <span class="text-brand font-medium">student success</span>.
-            </p>
-            <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-              “Notice and support students before they fall.”
-            </p>
-          </div>
-          <div class="flip-back">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" class="w-full h-full object-cover rounded-2xl">
-          </div>
-        </div>
+      <div class="role-card accent-bar">
+        <h3 class="text-xl font-semibold heading-accent">Faculty & Students</h3>
+        <p class="mt-6 text-gray-700 leading-relaxed">
+          <span class="font-medium text-gray-900">Early alerts and insights</span>
+          to improve teaching and
+          <span class="text-brand font-medium">student success</span>.
+        </p>
+        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+          "Notice and support students before they fall."
+        </p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ================= ROLES (ALT) ================= -->
-</div>
-  </div>
-</section>
-
-<!-- ================= VIDEO ================= -->
-<section class="py-24 bg-gray-50">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">See Ustadex in Action</h2>
-    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-      <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="bg-brand text-white py-20">
+<section class="bg-brand text-white py-16">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold">See your university before problems appear</h2>
     <p class="mt-4 text-lg opacity-90">
