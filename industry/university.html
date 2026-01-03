@@ -240,7 +240,7 @@
           <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
             Request a Demo
           </a>
-          <button class="border border-brand text-brand px-8 py-4 rounded-xl">
+          <button onclick="openVideoModal()" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors">
             Explore Platform
           </button>
         </div>
@@ -600,6 +600,44 @@
 <footer class="py-8 text-center text-gray-500 text-sm">
   © 2025 Ustadex Analytics. All rights reserved.
 </footer>
+
+<!-- ================= VIDEO MODAL ================= -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4" onclick="closeVideoModal(event)">
+  <div class="relative bg-white rounded-2xl max-w-5xl w-full p-6" onclick="event.stopPropagation()">
+    <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold z-10">&times;</button>
+    <div class="aspect-video rounded-xl overflow-hidden">
+      <iframe id="videoFrame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal(event) {
+    if (event && event.target !== event.currentTarget && !event.target.closest('.bg-white')) {
+      return;
+    }
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    modal.classList.add('hidden');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    }
+  });
+</script>
 
 </body>
 </html>
