@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ustadex Analytics - Retail Chains</title>
+  <title>Ustadex Analytics - Manufacturing</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +13,7 @@
       theme: {
         extend: {
           colors: {
-            brand: '#EA580C'
+            brand: '#0D9488'
           }
         }
       }
@@ -77,7 +77,7 @@
     background: #ffffff;
     border-radius: 2rem;
     padding: 2.5rem;
-    border: 1px solid rgba(234, 88, 12, 0.15);
+    border: 1px solid rgba(13, 148, 136, 0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   }
 
@@ -107,7 +107,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #EA580C;
+    color: #0D9488;
   }
 
   .step-title {
@@ -123,9 +123,9 @@
 
   /* Step 3 emphasis (same structure, more presence) */
   .step-focus .step-inner {
-    border-color: rgba(234, 88, 12, 0.4);
+    border-color: rgba(13, 148, 136, 0.4);
     box-shadow:
-      0 20px 40px -20px rgba(234, 88, 12, 0.5);
+      0 20px 40px -20px rgba(13, 148, 136, 0.5);
     transform: translateY(-6px);
   }
 
@@ -135,7 +135,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #EA580C;
+    color: #0D9488;
     margin-bottom: 0.5rem;
   }
 
@@ -144,14 +144,14 @@
       background: white;
       padding: 2rem;
       border-radius: 1.25rem;
-      box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.1), 0 4px 6px -2px rgba(234, 88, 12, 0.05);
+      box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.1), 0 4px 6px -2px rgba(13, 148, 136, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(234, 88, 12, 0.1);
+      border: 1px solid rgba(13, 148, 136, 0.1);
     }
     .role-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 25px -5px rgba(234, 88, 12, 0.2), 0 10px 10px -5px rgba(234, 88, 12, 0.1);
-      border-color: rgba(234, 88, 12, 0.3);
+      box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.2), 0 10px 10px -5px rgba(13, 148, 136, 0.1);
+      border-color: rgba(13, 148, 136, 0.3);
     }
 
     /*shift focus outline for accessibility*/
@@ -166,10 +166,10 @@
     background: linear-gradient(
       135deg,
       #ffffff 0%,
-      #fff7ed 100%
+      #f0fdfa 100%
     );
-    border: 1px solid rgba(234, 88, 12, 0.12);
-    box-shadow: 0 12px 30px -18px rgba(234, 88, 12, 0.35);
+    border: 1px solid rgba(13, 148, 136, 0.12);
+    box-shadow: 0 12px 30px -18px rgba(13, 148, 136, 0.35);
     transition:
       transform 0.35s ease,
       box-shadow 0.35s ease,
@@ -187,15 +187,15 @@
     border-radius: 999px;
     background: linear-gradient(
       to bottom,
-      #EA580C,
-      #FB923C
+      #0D9488,
+      #14B8A6
     );
   }
 
   .question-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 50px -20px rgba(234, 88, 12, 0.45);
-    border-color: rgba(234, 88, 12, 0.35);
+    box-shadow: 0 24px 50px -20px rgba(13, 148, 136, 0.45);
+    border-color: rgba(13, 148, 136, 0.35);
   }
 
   /*Roles*/
@@ -211,12 +211,12 @@
     width: 40%;
     height: 3px;
     border-radius: 999px;
-    background: linear-gradient(to right, #EA580C, #F59E0B);
+    background: linear-gradient(to right, #0D9488, #06B6D4);
   }
 
   .accent-bar {
     border-left: 4px solid transparent;
-    border-image: linear-gradient(to bottom, #EA580C, #F59E0B) 1;
+    border-image: linear-gradient(to bottom, #0D9488, #06B6D4) 1;
   }
 
   </style>
@@ -225,7 +225,7 @@
 <body class="bg-white text-gray-800 antialiased">
 
 <!-- ================= HERO ================= -->
-<section class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50">
+<section class="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid lg:grid-cols-2 gap-24 items-center">
 
@@ -235,11 +235,11 @@
   to the way <span class="text-brand">leaders think</span>.
 </h1>
   <p class="mt-6 text-lg md:text-xl text-gray-600">
-          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">retail chains</span> anticipate trends,
-          optimize store performance, and drive profitable growth.
+          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">manufacturing leaders</span> anticipate risks,
+          prevent downtime, and optimize operations.
         </p>
         <div class="mt-10 flex gap-4">
-          <a href="https://ustadex.io/page/BookDemo" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
+          <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
             Request a Demo
           </a>
           <button class="border border-brand text-brand px-8 py-4 rounded-xl">
@@ -251,9 +251,9 @@
 
       <div class="relative flex justify-center">
         <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
-          <img src="hero_image_retail.png" class="w-full object-cover" />
+          <img src="../images/hero_image_manufacturing.png" class="w-full object-cover" />
         </div>
-        <div class="absolute -inset-12 bg-orange-500/10 blur-3xl -z-10"></div>
+        <div class="absolute -inset-12 bg-teal-500/10 blur-3xl -z-10"></div>
       </div>
 
     </div>
@@ -307,7 +307,7 @@
       <div class="step-card">
         <div class="step-inner">
           <div class="step-header">
-            <div class="icon-box bg-orange-50">
+            <div class="icon-box bg-teal-50">
               <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
                    viewBox="0 0 24 24">
                 <path d="M12 6v6l4 2"></path>
@@ -319,8 +319,8 @@
 
           <h3 class="step-title">Leaders Think Forward</h3>
           <p class="step-text">
-            Leadership focuses on what comes next — store performance,
-            inventory flow, promotions, margins, and customer demand.
+            Leadership focuses on what comes next — output stability,
+            cost control, downtime prevention, quality consistency, supply risk, and capacity planning.
           </p>
         </div>
       </div>
@@ -341,7 +341,7 @@
 
           <h3 class="step-title">Data Looks Backward</h3>
           <p class="step-text">
-            Most data arrives as static reports and dashboards —
+            Most data arrives as static reports, delayed KPIs, and siloed dashboards —
             explaining what already happened, not what is emerging.
           </p>
         </div>
@@ -379,7 +379,7 @@
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-orange-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-teal-200/30 rounded-full blur-3xl"></div>
 </section>
 
 
@@ -401,34 +401,34 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
       <div class="question-card accent">
-        Which stores are likely to miss targets next month — and why?
+        What will happen if this machine goes down again this week?
       </div>
 
       <div class="question-card accent">
-        Where will stockouts or overstock hurt us before the season ends?
+        Where are hidden inefficiencies increasing our unit cost?
       </div>
 
       <div class="question-card accent">
-        Are promotions increasing demand, or just discounting revenue?
+        Which production line is becoming a bottleneck?
       </div>
 
       <div class="question-card accent">
-        How is online sales affecting in-store performance across regions?
+        How will supplier delays impact output next month?
       </div>
 
       <div class="question-card accent">
-        Which products drive margin, not just volume?
+        Which quality issues are likely to escalate before detection?
       </div>
 
       <div class="question-card accent">
-        How is customer demand shifting across channels and locations?
+        How is capacity utilization trending across shifts?
       </div>
 
     </div>
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-amber-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-cyan-200/30 rounded-full blur-3xl"></div>
 </section>
 
 
@@ -454,91 +454,91 @@
         width: 42%;
         height: 3px;
         border-radius: 999px;
-        background: linear-gradient(to right, #EA580C, #F59E0B);
+        background: linear-gradient(to right, #0D9488, #06B6D4);
       }
       .accent-bar {
         border-left: 4px solid transparent;
-        border-image: linear-gradient(to bottom, #EA580C, #F59E0B) 1;
+        border-image: linear-gradient(to bottom, #0D9488, #06B6D4) 1;
       }
     </style>
 
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
-      <!-- Leadership -->
+      <!-- Operations Leadership -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Leadership</h3>
+        <h3 class="text-xl font-semibold heading-accent">Operations Leadership</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Real-time view of business health</span>
-          across regions and formats for
-          <span class="text-brand font-medium">strategic, confident decisions</span>.
+          <span class="font-medium text-gray-900">Real-time operational visibility</span>
+          across production, maintenance, and quality for
+          <span class="text-brand font-medium">predictive, controlled operations</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
           "I don't want reports. I want foresight."
         </p>
       </div>
 
-      <!-- Merchandising -->
+      <!-- Production Management -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Merchandising</h3>
+        <h3 class="text-xl font-semibold heading-accent">Production Management</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Understand which products</span>
-          drive margin, not just volume, to optimize
-          <span class="text-brand font-medium">product mix and profitability</span>.
+          <span class="font-medium text-gray-900">See signals while decisions still matter</span>
+          to optimize output and
+          <span class="text-brand font-medium">prevent bottlenecks</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Show me what drives margin — not just sales."
+          "Show me what's happening — and why — before the shift ends."
         </p>
       </div>
 
-      <!-- Supply Chain & Operations -->
+      <!-- Maintenance -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Supply Chain & Operations</h3>
+        <h3 class="text-xl font-semibold heading-accent">Maintenance</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Anticipate stock issues</span>
-          before shelves go empty and
-          <span class="text-brand font-medium">optimize inventory flow</span>.
+          <span class="font-medium text-gray-900">Predict equipment failures</span>
+          before they cause downtime and
+          <span class="text-brand font-medium">optimize maintenance schedules</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Prevent problems before they impact customers."
+          "Prevent problems before they impact production."
         </p>
       </div>
 
-      <!-- Marketing -->
+      <!-- Quality Control -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Marketing</h3>
+        <h3 class="text-xl font-semibold heading-accent">Quality Control</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Measure promotion impact</span>
-          beyond short-term sales spikes to understand
-          <span class="text-brand font-medium">true demand generation</span>.
+          <span class="font-medium text-gray-900">Detect quality issues early</span>
+          before they escalate and
+          <span class="text-brand font-medium">maintain consistency</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Are we creating demand or just discounting?"
+          "Catch issues before they become defects."
         </p>
       </div>
 
-      <!-- Finance -->
+      <!-- Supply Chain -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Finance</h3>
+        <h3 class="text-xl font-semibold heading-accent">Supply Chain</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Identify margin pressure</span>
-          and cash-flow risk early to make
-          <span class="text-brand font-medium">informed financial decisions</span>.
+          <span class="font-medium text-gray-900">Anticipate supplier delays</span>
+          and material shortages to
+          <span class="text-brand font-medium">prevent production disruptions</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
           "If I can't see risk early, I can't manage it."
         </p>
       </div>
 
-      <!-- Store Managers -->
+      <!-- Finance & Cost Control -->
       <div class="role-card accent-bar">
-        <h3 class="text-xl font-semibold heading-accent">Store Managers</h3>
+        <h3 class="text-xl font-semibold heading-accent">Finance & Cost Control</h3>
         <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Clear, actionable signals</span>
-          instead of lagging KPIs to
-          <span class="text-brand font-medium">improve store performance</span>.
+          <span class="font-medium text-gray-900">Identify hidden inefficiencies</span>
+          increasing unit costs to make
+          <span class="text-brand font-medium">smarter financial decisions</span>.
         </p>
         <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
-          "Give me signals I can act on — not reports I can't change."
+          "Show me where costs are escalating — before they do."
         </p>
       </div>
 
@@ -549,11 +549,11 @@
 <!-- ================= CTA ================= -->
 <section class="bg-brand text-white py-16">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold">See your retail chain before problems appear</h2>
+    <h2 class="text-4xl font-bold">See your operations before problems appear</h2>
     <p class="mt-4 text-lg opacity-90">
-      Experience question-driven exploration with Ustadex Analytics.
+      Experience predictive operations with Ustadex Analytics.
     </p>
-    <a href="https://ustadex.io/page/BookDemo" class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold inline-block text-center">
+    <a href="../page/contactus.html" class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold inline-block text-center">
       Request a Live Demo
     </a>
   </div>
