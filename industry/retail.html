@@ -224,6 +224,10 @@
 
 <body class="bg-white text-gray-800 antialiased">
 
+<!-- ================= NAVIGATION ================= -->
+<div id="main-navigation"></div>
+<script src="../js/navigation.js"></script>
+
 <!-- ================= HERO ================= -->
 <section class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50">
   <div class="max-w-7xl mx-auto px-6 py-16">
@@ -240,7 +244,7 @@
         </p>
         <div class="mt-10 flex gap-4">
           <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
-            Request a Demo
+            Get Started
           </a>
           <button onclick="openVideoModal()" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-orange-50 transition-colors">
             Explore Platform
@@ -266,8 +270,13 @@
     <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
     <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
       <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        src="https://www.youtube.com/embed/CKk-NivJPwo"
         allowfullscreen></iframe>
+    </div>
+    <div class="mt-10">
+      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Get Started
+      </a>
     </div>
   </div>
 </section>
@@ -376,6 +385,11 @@
       </div>
 
     </div>
+    <div class="mt-12 text-center">
+      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Get Started
+      </a>
+    </div>
   </div>
 
   <!-- Background Accent -->
@@ -424,6 +438,11 @@
         How is customer demand shifting across channels and locations?
       </div>
 
+    </div>
+    <div class="mt-12 text-center">
+      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Get Started
+      </a>
     </div>
   </div>
 
@@ -543,6 +562,11 @@
       </div>
 
     </div>
+    <div class="mt-12 text-center">
+      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Get Started
+      </a>
+    </div>
   </div>
 </section>
 
@@ -554,7 +578,7 @@
       Experience question-driven exploration with Ustadex Analytics.
     </p>
     <a href="../page/contactus.html" class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold inline-block text-center">
-      Request a Live Demo
+      Get Started
     </a>
   </div>
 </section>
@@ -578,7 +602,7 @@
   function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoFrame');
-    iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    iframe.src = 'https://www.youtube.com/embed/CKk-NivJPwo?autoplay=1';
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }

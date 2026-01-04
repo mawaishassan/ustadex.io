@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <title>Pricing | Ustadex</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#2563EB'
+          }
+        }
+      }
+    }
+  </script>
+  
   <style>
     :root {
       --primary: #2563eb;
@@ -126,6 +141,10 @@
 </head>
 <body>
 
+<!-- ================= NAVIGATION ================= -->
+<div id="main-navigation"></div>
+<script src="../js/navigation.js"></script>
+
 <!-- HERO -->
 <section class="container center">
   <h1>Simple Pricing. Powerful Decisions.</h1>
@@ -134,7 +153,7 @@
     Every engagement begins with a conversation.
   </p>
 
-  <a href="contactus.html" class="btn btn-primary">Contact Sales</a>
+  <a href="contactus.html" class="btn btn-primary">Get Started</a>
   <p style="font-size:14px;">Guided discussion · No obligation</p>
 </section>
 
@@ -157,7 +176,7 @@
         <li>100K consumable AI tokens</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-outline">Contact Sales</a>
+      <a href="contactus.html" class="btn btn-outline">Get Started</a>
     </div>
 
     <!-- Professional -->
@@ -177,7 +196,7 @@
         <li>1M consumable AI tokens</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-primary">Contact Sales</a>
+      <a href="contactus.html" class="btn btn-primary">Get Started</a>
     </div>
 
     <!-- Enterprise -->
@@ -195,7 +214,7 @@
         <li>SLA & private deployment</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-secondary">Contact Sales</a>
+      <a href="contactus.html" class="btn btn-secondary">Get Started</a>
     </div>
 
   </div>
@@ -234,6 +253,9 @@
       Yes. The subscription unlocks the platform.
       AI usage is governed by token consumption.
     </p>
+  </div>
+  <div class="mt-10 text-center">
+    <a href="contactus.html" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px;">Get Started</a>
   </div>
 </section>
 
