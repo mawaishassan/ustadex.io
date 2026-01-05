@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png" />
   <title>Ustadex Analytics - Data That Adapts to How Leaders Think</title>
 
   <!-- Tailwind CSS CDN -->
@@ -13,7 +14,13 @@
       theme: {
         extend: {
           colors: {
-            brand: '#2563EB'
+            brand: '#2563EB',
+            'university-brand': '#C9B6E4',
+            'ecommerce-brand': '#C7C9F2',
+            'retail-brand': '#F5A623',
+            'manufacturing-brand': '#A3B18A',
+            'healthcare-brand': '#9FE0C3',
+            'foodchain-brand': '#E1B12C'
           }
         }
       }
@@ -65,6 +72,65 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .icon-university {
+      background-color: rgba(201, 182, 228, 0.2);
+      color: #C9B6E4;
+    }
+    .industry-card:hover .icon-university {
+      background-color: #C9B6E4;
+      color: #FFFFFF;
+    }
+    
+    .icon-ecommerce {
+      background-color: rgba(199, 201, 242, 0.2);
+      color: #C7C9F2;
+    }
+    .industry-card:hover .icon-ecommerce {
+      background-color: #C7C9F2;
+      color: #FFFFFF;
+    }
+    
+    .icon-retail {
+      background-color: rgba(245, 166, 35, 0.2);
+      color: #F5A623;
+    }
+    .industry-card:hover .icon-retail {
+      background-color: #F5A623;
+      color: #FFFFFF;
+    }
+    
+    .icon-manufacturing {
+      background-color: rgba(163, 177, 138, 0.2);
+      color: #A3B18A;
+    }
+    .industry-card:hover .icon-manufacturing {
+      background-color: #A3B18A;
+      color: #FFFFFF;
+    }
+    
+    .icon-healthcare {
+      background-color: rgba(159, 224, 195, 0.2);
+      color: #9FE0C3;
+    }
+    .industry-card:hover .icon-healthcare {
+      background-color: #9FE0C3;
+      color: #FFFFFF;
+    }
+    
+    .icon-foodchain {
+      background-color: rgba(225, 177, 44, 0.2);
+      color: #E1B12C;
+    }
+    .industry-card:hover .icon-foodchain {
+      background-color: #E1B12C;
+      color: #FFFFFF;
+    }
+    
+    .industry-card:hover .industry-icon {
+      transform: scale(1.05);
     }
 
     /* Feature Cards */
@@ -82,6 +148,65 @@
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    
+    /* Book Demo Button Animations */
+    a[href*="BookDemo"] {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    a[href*="BookDemo"]::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: 0;
+    }
+    
+    a[href*="BookDemo"]:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
+    a[href*="BookDemo"] > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    a[href*="BookDemo"]:hover {
+      transform: translateY(-3px) scale(1.05);
+      animation: buttonPulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3), 0 4px 6px -2px rgba(37, 99, 235, 0.2);
+      }
+      50% {
+        box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4), 0 10px 10px -5px rgba(37, 99, 235, 0.3);
+      }
+    }
+    
+    /* Special styling for white buttons on brand background */
+    section.bg-brand a[href*="BookDemo"]:hover {
+      animation: buttonPulseWhite 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes buttonPulseWhite {
+      0%, 100% {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+      }
+      50% {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+      }
     }
   </style>
 </head>
@@ -110,8 +235,8 @@
         make decisions with clarity and confidence.
       </p>
       <div class="mt-10 flex gap-4">
-        <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center">
-          Get Started
+        <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center">
+          Book Demo
         </a>
         <button onclick="openVideoModal()" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors inline-block text-center">
           Explore Platform
@@ -152,8 +277,8 @@
       </p>
     </div>
     <div class="mt-12 text-center">
-      <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -239,8 +364,8 @@
       </div>
     </div>
     <div class="mt-12 text-center">
-      <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -261,7 +386,7 @@
       
       <!-- University -->
       <a href="industry/university.html" class="industry-card group">
-        <div class="industry-icon bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-university">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
@@ -275,7 +400,7 @@
 
       <!-- Ecommerce -->
       <a href="industry/ecommerce.html" class="industry-card group">
-        <div class="industry-icon bg-purple-100 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-ecommerce">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
@@ -289,7 +414,7 @@
 
       <!-- Retail -->
       <a href="industry/retail.html" class="industry-card group">
-        <div class="industry-icon bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-retail">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
           </svg>
@@ -303,7 +428,7 @@
 
       <!-- Manufacturing -->
       <a href="industry/manufacturing.html" class="industry-card group">
-        <div class="industry-icon bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-manufacturing">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
           </svg>
@@ -317,7 +442,7 @@
 
       <!-- Healthcare -->
       <a href="industry/healthcare.html" class="industry-card group">
-        <div class="industry-icon bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-healthcare">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
           </svg>
@@ -331,7 +456,7 @@
 
       <!-- Food Chains -->
       <a href="industry/foodchain.html" class="industry-card group">
-        <div class="industry-icon bg-rose-100 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+        <div class="industry-icon icon-foodchain">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
           </svg>
@@ -345,8 +470,8 @@
 
     </div>
     <div class="mt-12 text-center">
-      <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -361,12 +486,12 @@
     </p>
     <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
       <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/CKk-NivJPwo"
+        src="https://www.youtube.com/embed/pRkiATZVkA8"
         allowfullscreen></iframe>
     </div>
     <div class="mt-10">
-      <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -389,8 +514,8 @@
       and experience how decision-making changes when data works <em>with</em> you.
     </p>
     <div class="mt-10">
-      <a href="page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -404,10 +529,10 @@
       Experience question-driven exploration. See how Ustadex adapts to your way of thinking.
     </p>
     <div class="flex gap-4 justify-center flex-wrap">
-      <a href="page/contactus.html" class="bg-white text-brand px-10 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors inline-block text-center">
-        Get Started
+      <a href="page/BookDemo.html" class="bg-white text-brand px-10 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors inline-block text-center">
+        Book Demo
       </a>
-      <a href="page/contactus.html" class="border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white/10 transition-colors inline-block text-center">
+      <a href="page/BookDemo.html" class="border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white/10 transition-colors inline-block text-center">
         Contact Sales
       </a>
     </div>
@@ -444,7 +569,7 @@
         <h4 class="text-white font-semibold mb-4">Company</h4>
         <ul class="space-y-2 text-sm">
           <li><a href="#" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="page/contactus.html" class="hover:text-white transition-colors">Contact Us</a></li>
           <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
         </ul>
       </div>
@@ -477,7 +602,7 @@
   function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoFrame');
-    iframe.src = 'https://www.youtube.com/embed/CKk-NivJPwo?autoplay=1';
+    iframe.src = 'https://www.youtube.com/embed/pRkiATZVkA8?autoplay=1';
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }

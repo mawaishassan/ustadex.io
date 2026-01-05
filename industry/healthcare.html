@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
   <title>Ustadex Analytics - Healthcare</title>
 
   <!-- Tailwind CSS CDN -->
@@ -13,7 +14,13 @@
       theme: {
         extend: {
           colors: {
-            brand: '#059669'
+            brand: '#9FE0C3',
+            deepteal: '#0F3D3E',
+            softmint: '#6DAFA7',
+            white: '#F6FAF9',
+            aqua: '#9FE0C3',
+            emerald: '#3A7F6B',
+            cleanwhite: '#FFFFFF'
           }
         }
       }
@@ -41,6 +48,46 @@
 </script>
 
   <style>
+    /* Book Demo Button Animations */
+    a[href*="BookDemo"] {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    a[href*="BookDemo"]::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: 0;
+    }
+    
+    a[href*="BookDemo"]:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
+    a[href*="BookDemo"]:hover {
+      transform: translateY(-3px) scale(1.05);
+      animation: buttonPulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
     /* HERO IMAGE */
     .dashboard-3d {
       transform:
@@ -107,7 +154,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #059669;
+    color: #9FE0C3;
   }
 
   .step-title {
@@ -117,15 +164,15 @@
   }
 
   .step-text {
-    color: #4b5563;
+    color: #0F3D3E;
     line-height: 1.6;
   }
 
   /* Step 3 emphasis (same structure, more presence) */
   .step-focus .step-inner {
-    border-color: rgba(5, 150, 105, 0.4);
+    border-color: rgba(159, 224, 195, 0.4);
     box-shadow:
-      0 20px 40px -20px rgba(5, 150, 105, 0.5);
+      0 20px 40px -20px rgba(159, 224, 195, 0.5);
     transform: translateY(-6px);
   }
 
@@ -135,23 +182,23 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #059669;
+    color: #9FE0C3;
     margin-bottom: 0.5rem;
   }
 
     /* ROLE CARDS */
     .role-card {
-      background: white;
+      background: #F6FAF9;
       padding: 2rem;
       border-radius: 1.25rem;
-      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.1), 0 4px 6px -2px rgba(5, 150, 105, 0.05);
+      box-shadow: 0 10px 15px -3px rgba(159, 224, 195, 0.1), 0 4px 6px -2px rgba(159, 224, 195, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(5, 150, 105, 0.1);
+      border: 1px solid rgba(159, 224, 195, 0.2);
     }
     .role-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 25px -5px rgba(5, 150, 105, 0.2), 0 10px 10px -5px rgba(5, 150, 105, 0.1);
-      border-color: rgba(5, 150, 105, 0.3);
+      box-shadow: 0 20px 25px -5px rgba(159, 224, 195, 0.2), 0 10px 10px -5px rgba(159, 224, 195, 0.1);
+      border-color: rgba(159, 224, 195, 0.4);
     }
 
     /*shift focus outline for accessibility*/
@@ -162,14 +209,14 @@
     font-size: 1.05rem;
     line-height: 1.6;
     font-weight: 500;
-    color: #1f2937; /* gray-800 */
+    color: #0F3D3E; /* deep teal */
     background: linear-gradient(
       135deg,
-      #ffffff 0%,
-      #f0fdf4 100%
+      #F6FAF9 0%,
+      #FFFFFF 100%
     );
-    border: 1px solid rgba(5, 150, 105, 0.12);
-    box-shadow: 0 12px 30px -18px rgba(5, 150, 105, 0.35);
+    border: 1px solid rgba(159, 224, 195, 0.3);
+    box-shadow: 0 12px 30px -18px rgba(159, 224, 195, 0.4);
     transition:
       transform 0.35s ease,
       box-shadow 0.35s ease,
@@ -187,15 +234,15 @@
     border-radius: 999px;
     background: linear-gradient(
       to bottom,
-      #059669,
-      #10B981
+      #9FE0C3,
+      #3A7F6B
     );
   }
 
   .question-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 50px -20px rgba(5, 150, 105, 0.45);
-    border-color: rgba(5, 150, 105, 0.35);
+    box-shadow: 0 24px 50px -20px rgba(159, 224, 195, 0.5);
+    border-color: rgba(159, 224, 195, 0.4);
   }
 
   /*Roles*/
@@ -211,42 +258,42 @@
     width: 40%;
     height: 3px;
     border-radius: 999px;
-    background: linear-gradient(to right, #059669, #34D399);
+    background: linear-gradient(to right, #9FE0C3, #3A7F6B);
   }
 
   .accent-bar {
     border-left: 4px solid transparent;
-    border-image: linear-gradient(to bottom, #059669, #34D399) 1;
+    border-image: linear-gradient(to bottom, #9FE0C3, #3A7F6B) 1;
   }
 
   </style>
 </head>
 
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-cleanwhite text-deepteal antialiased">
 
 <!-- ================= NAVIGATION ================= -->
 <div id="main-navigation"></div>
 <script src="../js/navigation.js"></script>
 
 <!-- ================= HERO ================= -->
-<section class="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-green-50">
+<section class="relative overflow-hidden bg-gradient-to-br from-deepteal via-softmint to-softmint">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid lg:grid-cols-2 gap-24 items-center">
 
     <div class="max-w-xl">
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-  Ustadex  <span class="text-brand">adapts</span>  data
-  to the way <span class="text-brand">leaders think</span>.
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-cleanwhite">
+  Ustadex  <span class="text-aqua">adapts</span>  data
+  to the way <span class="text-aqua">leaders think</span>.
 </h1>
-  <p class="mt-6 text-lg md:text-xl text-gray-600">
-          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">healthcare leaders</span> anticipate risks,
+  <p class="mt-6 text-lg md:text-xl text-cleanwhite">
+          A <span class="text-aqua font-semibold">unified analytics </span>platform helping <span class="text-aqua font-semibold">healthcare leaders</span> anticipate risks,
           improve patient outcomes, and optimize operations.
         </p>
         <div class="mt-10 flex gap-4">
-          <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
-            Get Started
+          <a href="../page/BookDemo.html" class="bg-aqua text-deepteal px-8 py-4 rounded-xl shadow-md hover:bg-aqua/90 transition-colors inline-block text-center font-semibold">
+            Book Demo
           </a>
-          <button onclick="openVideoModal()" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-emerald-50 transition-colors">
+          <button onclick="openVideoModal()" class="border border-aqua text-cleanwhite px-8 py-4 rounded-xl hover:bg-aqua/20 transition-colors">
             Explore Platform
           </button>
         </div>
@@ -254,10 +301,10 @@
 
 
       <div class="relative flex justify-center">
-        <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
-          <img src="../images/hero_image_healthcare.jpg" class="w-full object-cover" />
+        <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-softmint/30 bg-cleanwhite">
+          <img src="../images/hero_image_healthcare_new.png" class="w-full object-cover" />
         </div>
-        <div class="absolute -inset-12 bg-emerald-500/10 blur-3xl -z-10"></div>
+        <div class="absolute -inset-12 bg-aqua/20 blur-3xl -z-10"></div>
       </div>
 
     </div>
@@ -265,17 +312,17 @@
 </section>
 
 <!-- ================= VIDEO ================= -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-white to-cleanwhite">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
+    <h2 class="text-4xl font-bold mb-6 text-deepteal">See <span class="text-brand">Ustadex</span> in Action</h2>
     <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
       <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/CKk-NivJPwo"
+        src="https://www.youtube.com/embed/pRkiATZVkA8"
         allowfullscreen></iframe>
     </div>
     <div class="mt-10">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-aqua text-deepteal px-8 py-4 rounded-xl shadow-md hover:bg-aqua/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -284,13 +331,13 @@
 <!-- ================= LEADERSHIP NARRATIVE ================= -->
 
 
-<section class="py-16 bg-soft relative overflow-hidden">
+<section class="py-16 bg-gradient-to-br from-white via-cleanwhite to-white relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12">
-      From <span class="text-brand">insight</span> to
-      <span class="text-brand">action</span>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12 text-deepteal">
+      From <span class="text-brand"><i>Insights</i></span> to
+      <span class="text-brand"><i>Actions</i></span>
     </h2>
 
     <!-- Steps -->
@@ -316,7 +363,7 @@
       <div class="step-card">
         <div class="step-inner">
           <div class="step-header">
-            <div class="icon-box bg-emerald-50">
+            <div class="icon-box bg-aqua/20">
               <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
                    viewBox="0 0 24 24">
                 <path d="M12 6v6l4 2"></path>
@@ -326,8 +373,8 @@
             <span class="step-label">Step 1</span>
           </div>
 
-          <h3 class="step-title">Leaders Think Forward</h3>
-          <p class="step-text">
+          <h3 class="step-title text-deepteal">Leaders Think Forward</h3>
+          <p class="step-text text-deepteal">
             Leadership focuses on what comes next — patient safety,
             quality of care, capacity planning, staff utilization, financial sustainability, and regulatory compliance.
           </p>
@@ -338,18 +385,18 @@
       <div class="step-card">
         <div class="step-inner">
           <div class="step-header">
-            <div class="icon-box bg-gray-100">
-              <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+            <div class="icon-box bg-softmint/20">
+              <svg class="w-6 h-6 text-softmint" fill="none" stroke="currentColor" stroke-width="2"
                    viewBox="0 0 24 24">
                 <path d="M9 17v-2m3 2v-6m3 6v-4"></path>
                 <path d="M7 3h10v18H7z"></path>
               </svg>
             </div>
-            <span class="step-label text-gray-400">Step 2</span>
+            <span class="step-label text-softmint">Step 2</span>
           </div>
 
-          <h3 class="step-title">Data Looks Backward</h3>
-          <p class="step-text">
+          <h3 class="step-title text-deepteal">Data Looks Backward</h3>
+          <p class="step-text text-deepteal">
             Most data arrives as static dashboards, delayed reports, and siloed systems —
             explaining what already happened, not what is emerging.
           </p>
@@ -376,7 +423,7 @@
             <span class="text-brand">Ustadex Aligns the Two</span>
           </h3>
 
-          <p class="step-text">
+          <p class="step-text text-deepteal">
             Ustadex connects data with how leaders think —
             delivering early signals, predictive insight,
             and answers to the question being asked right now.
@@ -386,28 +433,28 @@
 
     </div>
     <div class="mt-12 text-center">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-aqua text-deepteal px-8 py-4 rounded-xl shadow-md hover:bg-aqua/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-emerald-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-aqua/30 rounded-full blur-3xl"></div>
 </section>
 
 
 <!-- ================= SHIFT ================= -->
 
-<section class="py-16 bg-soft relative overflow-hidden">
+<section class="py-16 bg-gradient-to-br from-white via-cleanwhite to-white relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
 
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-      With Ustadex, you <span class="text-brand">don't </span> start with <span class="text-brand">static data</span>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight text-deepteal">
+      With Ustadex, you <span class="text-brand">don't </span> start with <span class="text-brand">dull reports</span>
     </h2>
 
-    <p class="mt-4 text-2xl font-semibold text-brand mb-16">
+    <p class="mt-4 text-2xl font-semibold text-emerald mb-16">
       You start with the question leadership is asking
     </p>
 
@@ -440,22 +487,22 @@
 
     </div>
     <div class="mt-12 text-center">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-aqua text-deepteal px-8 py-4 rounded-xl shadow-md hover:bg-aqua/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-green-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-emerald/30 rounded-full blur-3xl"></div>
 </section>
 
 
 <!-- ================= ROLES ================= -->
-<section class="py-16">
+<section class="py-16 bg-gradient-to-br from-cleanwhite to-white">
   <div class="max-w-7xl mx-auto px-6">
 
-    <h2 class="text-4xl font-bold text-center mb-16">
+    <h2 class="text-4xl font-bold text-center mb-16 text-deepteal">
       One Platform. <span class="text-brand">Every Team </span>Empowered.
     </h2>
 
@@ -473,11 +520,11 @@
         width: 42%;
         height: 3px;
         border-radius: 999px;
-        background: linear-gradient(to right, #059669, #34D399);
+        background: linear-gradient(to right, #9FE0C3, #3A7F6B);
       }
       .accent-bar {
         border-left: 4px solid transparent;
-        border-image: linear-gradient(to bottom, #059669, #34D399) 1;
+        border-image: linear-gradient(to bottom, #9FE0C3, #3A7F6B) 1;
       }
     </style>
 
@@ -486,12 +533,12 @@
       <!-- Clinical Leadership -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Clinical Leadership</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Real-time view of clinical operations</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">Real-time view of clinical operations</span>
           across patient flow, quality, and outcomes for
-          <span class="text-brand font-medium">proactive, patient-centered decisions</span>.
+          <span class="text-emerald font-medium">proactive, patient-centered decisions</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "I don't want reports. I want foresight."
         </p>
       </div>
@@ -499,12 +546,12 @@
       <!-- Patient Flow & Operations -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Patient Flow & Operations</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">See early signals while intervention is possible</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">See early signals while intervention is possible</span>
           to optimize capacity and
-          <span class="text-brand font-medium">prevent bottlenecks</span>.
+          <span class="text-emerald font-medium">prevent bottlenecks</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "Show me what's happening — and why — before patient experience suffers."
         </p>
       </div>
@@ -512,12 +559,12 @@
       <!-- Nursing & Staffing -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Nursing & Staffing</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Monitor staff-to-patient ratios</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">Monitor staff-to-patient ratios</span>
           before they become unsafe and
-          <span class="text-brand font-medium">optimize workforce allocation</span>.
+          <span class="text-emerald font-medium">optimize workforce allocation</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "Prevent unsafe ratios before they impact care."
         </p>
       </div>
@@ -525,12 +572,12 @@
       <!-- Quality & Outcomes -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Quality & Outcomes</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Identify readmission risk factors</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">Identify readmission risk factors</span>
           early to intervene and
-          <span class="text-brand font-medium">improve patient outcomes</span>.
+          <span class="text-emerald font-medium">improve patient outcomes</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "Catch risk factors before they become readmissions."
         </p>
       </div>
@@ -538,12 +585,12 @@
       <!-- Finance & Revenue -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Finance & Revenue</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Monitor financial sustainability</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">Monitor financial sustainability</span>
           and resource utilization to make
-          <span class="text-brand font-medium">informed financial decisions</span>.
+          <span class="text-emerald font-medium">informed financial decisions</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "If I can't see risk early, I can't manage it."
         </p>
       </div>
@@ -551,34 +598,34 @@
       <!-- Compliance & Regulatory -->
       <div class="role-card accent-bar">
         <h3 class="text-xl font-semibold heading-accent">Compliance & Regulatory</h3>
-        <p class="mt-6 text-gray-700 leading-relaxed">
-          <span class="font-medium text-gray-900">Track quality metrics trending</span>
+        <p class="mt-6 text-deepteal leading-relaxed">
+          <span class="font-medium text-deepteal">Track quality metrics trending</span>
           toward compliance issues to
-          <span class="text-brand font-medium">maintain regulatory standards</span>.
+          <span class="text-emerald font-medium">maintain regulatory standards</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-emerald font-semibold border-t border-aqua/30 pt-4">
           "Show me compliance risks before they become violations."
         </p>
       </div>
 
     </div>
     <div class="mt-12 text-center">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-aqua text-deepteal px-8 py-4 rounded-xl shadow-md hover:bg-aqua/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="bg-brand text-white py-16">
+<section class="bg-gradient-to-r from-deepteal via-softmint to-deepteal text-cleanwhite py-16">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold">See your healthcare operations before problems appear</h2>
     <p class="mt-4 text-lg opacity-90">
       Experience proactive, patient-centered operations with Ustadex Analytics.
     </p>
-    <a href="../page/contactus.html" class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold inline-block text-center">
-      Get Started
+    <a href="../page/BookDemo.html" class="mt-8 bg-aqua text-deepteal px-10 py-4 rounded-xl font-semibold hover:bg-aqua/90 transition-colors inline-block text-center">
+      Book Demo
     </a>
   </div>
 </section>
@@ -602,7 +649,7 @@
   function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoFrame');
-    iframe.src = 'https://www.youtube.com/embed/CKk-NivJPwo?autoplay=1';
+    iframe.src = 'https://www.youtube.com/embed/pRkiATZVkA8?autoplay=1';
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }

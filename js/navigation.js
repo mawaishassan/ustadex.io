@@ -28,9 +28,37 @@
     }
   }
 
+  // Determine which logo to use based on current page
+  function getLogoPath() {
+    const path = window.location.pathname;
+    const basePath = getBasePath();
+    
+    // Map industry pages to their specific logos
+    const logoMap = {
+      'university.html': 'logos/university_logo.png',
+      'ecommerce.html': 'logos/ecommerce_logo.png',
+      'retail.html': 'logos/retail_logo.png',
+      'manufacturing.html': 'logos/Manufacturing_logo.png',
+      'healthcare.html': 'logos/healthcare_logo.png',
+      'foodchain.html': 'logos/foodchain_logo.png'
+    };
+    
+    // Check if current page is an industry page
+    if (path.includes('/industry/')) {
+      const fileName = path.split('/').pop();
+      if (logoMap[fileName]) {
+        return `${basePath}${logoMap[fileName]}`;
+      }
+    }
+    
+    // Default to home logo for all other pages
+    return `${basePath}logos/home_logo.png`;
+  }
+
   // Generate navigation HTML
   function generateNavigation() {
     const basePath = getBasePath();
+    const logoPath = getLogoPath();
     
     return `
       <nav class="bg-white shadow-sm sticky top-0 z-50">
@@ -38,8 +66,8 @@
           <div class="flex items-center justify-between h-16">
             <!-- Logo/Brand -->
             <div class="flex-shrink-0">
-              <a href="${basePath}index.html" class="flex items-center space-x-2">
-                <img src="${basePath}images/logo.png" alt="Ustadex Analytics" class="h-8 w-auto">
+              <a href="${basePath}index.html" class="flex items-center space-x-3">
+                <img src="${logoPath}" alt="Ustadex Analytics" class="h-12 w-auto">
                 <span class="text-2xl font-bold text-gray-900">
                   Ustadex <span class="text-brand">Analytics</span>
                 </span>
@@ -77,9 +105,14 @@
                 Pricing
               </a>
 
-              <!-- Get Started CTA -->
-              <a href="${basePath}page/contactus.html" class="bg-brand text-white px-6 py-2 rounded-xl shadow-md hover:shadow-lg transition-shadow font-medium">
-                Get Started
+              <!-- Contact Us -->
+              <a href="${basePath}page/contactus.html" class="text-gray-700 hover:text-brand transition-colors font-medium">
+                Contact Us
+              </a>
+
+              <!-- Book Demo CTA -->
+              <a href="${basePath}page/BookDemo.html" class="bg-brand text-white px-6 py-2 rounded-xl shadow-md hover:shadow-lg transition-shadow font-medium">
+                Book Demo
               </a>
             </div>
 
@@ -121,8 +154,12 @@
                 Pricing
               </a>
 
-              <a href="${basePath}page/contactus.html" class="block px-4 py-2 bg-brand text-white rounded-xl text-center font-medium hover:bg-blue-700 transition-colors">
-                Get Started
+              <a href="${basePath}page/contactus.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-brand transition-colors rounded-lg">
+                Contact Us
+              </a>
+
+              <a href="${basePath}page/BookDemo.html" class="block px-4 py-2 bg-brand text-white rounded-xl text-center font-medium hover:bg-blue-700 transition-colors">
+                Book Demo
               </a>
             </div>
           </div>

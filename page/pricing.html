@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Pricing | Ustadex</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,88 +48,296 @@
       padding: 50px 20px;
     }
 
-    h1 { font-size: 40px; margin-bottom: 10px; }
-    h2 { font-size: 30px; margin-bottom: 10px; }
-    h3 { margin-bottom: 6px; }
+    h1 { 
+      font-size: 48px; 
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    h2 { 
+      font-size: 32px; 
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    h3 { 
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
 
-    p { color: var(--muted); margin-top: 6px; }
+    p { 
+      color: var(--muted); 
+      margin-top: 6px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
 
     .center { text-align: center; }
+    
+    .hero-section {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 35px 20px;
+      margin-bottom: 0;
+    }
+    
+    .hero-section h1 {
+      color: white;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    
+    .hero-section p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 0;
+    }
+    
+    .transition-section {
+      background: white;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    
+    .transition-section h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    
+    .transition-section p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
     /* Pricing */
+    .pricing-section {
+      background: var(--bg);
+      padding: 30px 20px;
+    }
+    
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .card {
       background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
     .card.highlight {
-      border: 2px solid var(--primary);
+      border: 3px solid var(--primary);
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+      position: relative;
+    }
+    
+    .card.highlight::before {
+      content: "Most Popular";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .price {
-      font-size: 34px;
-      font-weight: 700;
-      margin: 10px 0;
+      font-size: 48px;
+      font-weight: 800;
+      margin: 16px 0;
+      color: var(--dark);
+      line-height: 1;
+    }
+    
+    .price span {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--muted);
     }
 
     ul {
-      padding-left: 18px;
-      margin: 12px 0;
+      padding-left: 0;
+      margin: 24px 0;
+      list-style: none;
     }
 
     ul li {
-      margin-bottom: 6px;
+      margin-bottom: 12px;
+      padding-left: 28px;
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+    
+    ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 18px;
     }
 
     /* Buttons */
     .btn {
       display: inline-block;
-      margin-top: 16px;
-      padding: 12px 18px;
-      border-radius: 8px;
+      margin-top: 24px;
+      padding: 14px 32px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 16px;
       text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .card .btn {
+      width: 100%;
+    }
+    
+    .btn {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+      50% {
+        box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.3), 0 15px 15px -5px rgba(0, 0, 0, 0.15);
+      }
     }
 
     .btn-primary {
       background: var(--primary);
       color: #fff;
     }
+    
+    .btn-primary:hover {
+      background: #1e40af;
+    }
 
     .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--dark);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
     }
 
     .btn-secondary {
       background: var(--secondary);
       color: #fff;
     }
+    
+    .btn-secondary:hover {
+      background: #7e22ce;
+    }
 
     /* FAQ */
     .faq {
-      margin-top: 60px;
+      margin-top: 50px;
+      padding: 40px 20px;
+      background: white;
+    }
+    
+    .faq h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--dark);
     }
 
     .faq-item {
       background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 12px;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .faq-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    
+    .faq-item p {
+      margin-top: 12px;
     }
 
     footer {
@@ -146,26 +355,36 @@
 <script src="../js/navigation.js"></script>
 
 <!-- HERO -->
-<section class="container center">
-  <h1>Simple Pricing. Powerful Decisions.</h1>
-  <p>
-    Ustadex is a guided decision intelligence platform.
-    Every engagement begins with a conversation.
-  </p>
+<section class="hero-section">
+  <div class="container center">
+    <h1>Simple Pricing. Powerful Decisions.</h1>
+    <p>
+      Ustadex is a guided decision intelligence platform.
+      Every engagement begins with a conversation.
+    </p>
+  </div>
+</section>
 
-  <a href="contactus.html" class="btn btn-primary">Get Started</a>
-  <p style="font-size:14px;">Guided discussion · No obligation</p>
+<!-- TRANSITION -->
+<section class="transition-section">
+  <div class="container">
+    <h2>Choose Your Plan</h2>
+    <p>Start with a free demo or jump into a plan that fits your needs. All plans include our core decision intelligence features.</p>
+  </div>
 </section>
 
 <!-- PRICING -->
-<section class="container">
+<section class="pricing-section">
+  <div class="container">
   <div class="pricing-grid">
 
     <!-- Demo -->
     <div class="card">
-      <h3>Demo</h3>
-      <p>Evaluation & proof-of-value</p>
-      <div class="price">Free</div>
+      <div>
+        <h3>Demo</h3>
+        <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px;">Evaluation & proof-of-value</p>
+        <div class="price">Free</div>
+      </div>
 
       <ul>
         <li>1 data source</li>
@@ -176,14 +395,16 @@
         <li>100K consumable AI tokens</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-outline">Get Started</a>
+      <a href="BookDemo.html" class="btn btn-outline">Book Demo</a>
     </div>
 
     <!-- Professional -->
     <div class="card highlight">
-      <h3>Professional</h3>
-      <p>Operational analytics for teams</p>
-      <div class="price">$5<span style="font-size:16px;">/month</span></div>
+      <div>
+        <h3>Professional</h3>
+        <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px;">Operational analytics for teams</p>
+        <div class="price">$5<span>/month</span></div>
+      </div>
 
       <ul>
         <li>5 data sources</li>
@@ -196,14 +417,16 @@
         <li>1M consumable AI tokens</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-primary">Get Started</a>
+      <a href="BookDemo.html" class="btn btn-primary">Book Demo</a>
     </div>
 
     <!-- Enterprise -->
     <div class="card">
-      <h3>Enterprise</h3>
-      <p>Strategic intelligence at scale</p>
-      <div class="price">Custom</div>
+      <div>
+        <h3>Enterprise</h3>
+        <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px;">Strategic intelligence at scale</p>
+        <div class="price">Custom</div>
+      </div>
 
       <ul>
         <li>Unlimited data sources & dashboards</li>
@@ -214,7 +437,7 @@
         <li>SLA & private deployment</li>
       </ul>
 
-      <a href="contactus.html" class="btn btn-secondary">Get Started</a>
+      <a href="BookDemo.html" class="btn btn-secondary">Book Demo</a>
     </div>
 
   </div>
@@ -225,7 +448,7 @@
   <h2 class="center">Frequently Asked Questions</h2>
 
   <div class="faq-item">
-    <h4>Why does everything start with Contact Sales?</h4>
+    <h4>Why does everything start with Book Demo?</h4>
     <p>
       Ustadex is designed around decision workflows.
       A short conversation ensures correct setup and faster value.
@@ -254,8 +477,8 @@
       AI usage is governed by token consumption.
     </p>
   </div>
-  <div class="mt-10 text-center">
-    <a href="contactus.html" class="btn btn-primary" style="padding: 14px 28px; font-size: 16px;">Get Started</a>
+  <div style="margin-top: 32px; text-align: center; width: 100%;">
+    <a href="BookDemo.html" class="btn btn-primary" style="display: inline-block; padding: 16px 40px; font-size: 18px;">Book Demo</a>
   </div>
 </section>
 

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
   <title>Ustadex Analytics</title>
 
   <!-- Tailwind CSS CDN -->
@@ -13,7 +14,12 @@
       theme: {
         extend: {
           colors: {
-            brand: '#2563EB'
+            brand: '#C9B6E4',
+            plum: '#3B1E54',
+            lavender: '#B9A7D0',
+            ivory: '#F5F2EB',
+            gold: '#D4B26A',
+            offwhite: '#F8F7F4'
           }
         }
       }
@@ -41,6 +47,46 @@
 </script>
 
   <style>
+    /* Book Demo Button Animations */
+    a[href*="BookDemo"] {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    a[href*="BookDemo"]::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: 0;
+    }
+    
+    a[href*="BookDemo"]:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
+    a[href*="BookDemo"]:hover {
+      transform: translateY(-3px) scale(1.05);
+      animation: buttonPulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
     /* HERO IMAGE */
     .dashboard-3d {
       transform:
@@ -107,7 +153,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #2563EB;
+    color: #C9B6E4;
   }
 
   .step-title {
@@ -123,19 +169,19 @@
 
   /* Step 3 emphasis (same structure, more presence) */
   .step-focus .step-inner {
-    border-color: rgba(37, 99, 235, 0.4);
+    border-color: rgba(201, 182, 228, 0.4);
     box-shadow:
-      0 20px 40px -20px rgba(37, 99, 235, 0.5);
+      0 20px 40px -20px rgba(201, 182, 228, 0.5);
     transform: translateY(-6px);
   }
 
-  .shift-label {
+    .shift-label {
     display: inline-block;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2563EB;
+    color: #C9B6E4;
     margin-bottom: 0.5rem;
   }
 
@@ -160,14 +206,14 @@
     font-size: 1.05rem;
     line-height: 1.6;
     font-weight: 500;
-    color: #1f2937; /* gray-800 */
+    color: #3B1E54; /* plum */
     background: linear-gradient(
       135deg,
-      #ffffff 0%,
-      #f8fbff 100%
+      #F5F2EB 0%,
+      #F8F7F4 100%
     );
-    border: 1px solid rgba(37, 99, 235, 0.12);
-    box-shadow: 0 12px 30px -18px rgba(37, 99, 235, 0.35);
+    border: 1px solid rgba(201, 182, 228, 0.3);
+    box-shadow: 0 12px 30px -18px rgba(201, 182, 228, 0.4);
     transition:
       transform 0.35s ease,
       box-shadow 0.35s ease,
@@ -185,15 +231,15 @@
     border-radius: 999px;
     background: linear-gradient(
       to bottom,
-      #2563EB,
-      #60A5FA
+      #C9B6E4,
+      #B9A7D0
     );
   }
 
   .question-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 50px -20px rgba(37, 99, 235, 0.45);
-    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 24px 50px -20px rgba(201, 182, 228, 0.5);
+    border-color: rgba(201, 182, 228, 0.4);
   }
 
   /*Roles*/
@@ -227,24 +273,24 @@
 <script src="../js/navigation.js"></script>
 
 <!-- ================= HERO ================= -->
-<section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50">
+<section class="relative overflow-hidden bg-gradient-to-br from-plum via-lavender to-lavender">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid lg:grid-cols-2 gap-24 items-center">
 
     <div class="max-w-xl">
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-  Ustadex  <span class="text-brand">adapts</span>  data
-  to the way <span class="text-brand">leaders think</span>.
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-offwhite">
+  Ustadex  <span class="text-ivory">adapts</span>  data
+  to the way <span class="text-ivory">leaders think</span>.
 </h1>
-  <p class="mt-6 text-lg md:text-xl text-gray-600">
-          A <span class="text-brand">unified analytics </span>platform helping <span class="text-brand">universities</span> anticipate risks,
+  <p class="mt-6 text-lg md:text-xl text-offwhite">
+          A <span class="text-ivory font-semibold">unified analytics </span>platform helping <span class="text-ivory font-semibold">universities</span> anticipate risks,
           improve outcomes, and govern proactively.
         </p>
         <div class="mt-10 flex gap-4">
-          <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md inline-block text-center">
-            Get Started
+          <a href="../page/BookDemo.html" class="bg-gold text-plum px-8 py-4 rounded-xl shadow-md hover:bg-gold/90 transition-colors inline-block text-center font-semibold">
+            Book Demo
           </a>
-          <button onclick="openVideoModal()" class="border border-brand text-brand px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors">
+          <button onclick="openVideoModal()" class="border border-ivory text-offwhite px-8 py-4 rounded-xl hover:bg-ivory/20 transition-colors">
             Explore Platform
           </button>
         </div>
@@ -253,9 +299,9 @@
 
       <div class="relative flex justify-center">
         <div class="dashboard-3d rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 bg-white">
-          <img src="../images/hero_image_university.jpg" class="w-full object-cover" />
+          <img src="../images/hero_image_university_new.png" class="w-full object-cover" />
         </div>
-        <div class="absolute -inset-12 bg-blue-500/10 blur-3xl -z-10"></div>
+        <div class="absolute -inset-12 bg-lavender/20 blur-3xl -z-10"></div>
       </div>
 
     </div>
@@ -263,17 +309,17 @@
 </section>
 
 <!-- ================= VIDEO ================= -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-ivory to-offwhite">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">See <span class="text-brand">Ustadex</span> in Action</h2>
+    <h2 class="text-4xl font-bold mb-6 text-plum">See <span class="text-brand">Ustadex</span> in Action</h2>
     <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
       <iframe class="w-full h-full"
-        src="https://www.youtube.com/embed/CKk-NivJPwo"
+        src="https://www.youtube.com/embed/nq3DLo65EOw"
         allowfullscreen></iframe>
     </div>
     <div class="mt-10">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-gold text-plum px-8 py-4 rounded-xl shadow-md hover:bg-gold/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
@@ -282,13 +328,13 @@
 <!-- ================= LEADERSHIP NARRATIVE ================= -->
 
 
-<section class="py-16 bg-soft relative overflow-hidden">
+<section class="py-16 bg-gradient-to-br from-ivory via-offwhite to-ivory relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12">
-      From <span class="text-brand">insight</span> to
-      <span class="text-brand">action</span>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-12 text-plum">
+      From <span class="text-brand"><i>Insights</i></span> to
+      <span class="text-brand"><i>Actions</i></span>
     </h2>
 
     <!-- Steps -->
@@ -314,7 +360,7 @@
       <div class="step-card">
         <div class="step-inner">
           <div class="step-header">
-            <div class="icon-box bg-blue-50">
+            <div class="icon-box bg-lavender/20">
               <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2"
                    viewBox="0 0 24 24">
                 <path d="M12 6v6l4 2"></path>
@@ -325,7 +371,7 @@
           </div>
 
           <h3 class="step-title">Leaders Think Forward</h3>
-          <p class="step-text">
+          <p class="step-text text-gray-700">
             Leadership focuses on what comes next — admissions strategy,
             financial stability, academic quality, and research direction.
           </p>
@@ -347,7 +393,7 @@
           </div>
 
           <h3 class="step-title">Data Looks Backward</h3>
-          <p class="step-text">
+          <p class="step-text text-gray-700">
             Most data arrives as static reports and dashboards —
             explaining what already happened, not what is emerging.
           </p>
@@ -374,7 +420,7 @@
             <span class="text-brand">Ustadex Aligns the Two</span>
           </h3>
 
-          <p class="step-text">
+          <p class="step-text text-gray-700">
             Ustadex connects data with how leaders think —
             delivering early signals, predictive insight,
             and answers to the question being asked right now.
@@ -386,21 +432,21 @@
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-blue-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -top-32 -right-32 w-[32rem] h-[32rem] bg-lavender/30 rounded-full blur-3xl"></div>
 </section>
 
 
 <!-- ================= SHIFT ================= -->
 
-<section class="py-16 bg-soft relative overflow-hidden">
+<section class="py-16 bg-gradient-to-br from-ivory via-offwhite to-ivory relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
 
     <!-- Heading -->
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-      With Ustadex, you <span class="text-brand">don't </span> start with <span class="text-brand">static data</span>
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight text-plum">
+      With Ustadex, you <span class="text-brand">don't </span> start with <span class="text-brand">dull reports</span>
     </h2>
 
-    <p class="mt-4 text-2xl font-semibold text-brand mb-16">
+    <p class="mt-4 text-2xl font-semibold text-gold mb-16">
       You start with the question leadership is asking
     </p>
 
@@ -433,22 +479,22 @@
 
     </div>
     <div class="mt-12 text-center">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-gold text-plum px-8 py-4 rounded-xl shadow-md hover:bg-gold/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
 
   <!-- Background Accent -->
-  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-blue-200/30 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] bg-lavender/30 rounded-full blur-3xl"></div>
 </section>
 
 
 <!-- ================= ROLES ================= -->
-<section class="py-16">
+<section class="py-16 bg-gradient-to-br from-offwhite to-ivory">
   <div class="max-w-7xl mx-auto px-6">
 
-    <h2 class="text-4xl font-bold text-center mb-16">
+    <h2 class="text-4xl font-bold text-center mb-16 text-plum">
       One Platform. <span class="text-brand">Every Stakeholder </span>Empowered.
     </h2>
 
@@ -466,11 +512,11 @@
         width: 42%;
         height: 3px;
         border-radius: 999px;
-        background: linear-gradient(to right, #3b82f6, #22c55e);
+        background: linear-gradient(to right, #C9B6E4, #D4B26A);
       }
       .accent-bar {
         border-left: 4px solid transparent;
-        border-image: linear-gradient(to bottom, #3b82f6, #22c55e) 1;
+        border-image: linear-gradient(to bottom, #C9B6E4, #D4B26A) 1;
       }
     </style>
 
@@ -482,9 +528,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Institution-wide visibility</span>
           across academics, finance, quality, and research for
-          <span class="text-brand font-medium">confident, defensible decisions</span>.
+          <span class="text-gold font-medium">confident, defensible decisions</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "I don't want reports. I want foresight."
         </p>
       </div>
@@ -495,9 +541,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Predict student success</span>
           and risk early to improve
-          <span class="text-brand font-medium">intake quality and retention</span>.
+          <span class="text-gold font-medium">intake quality and retention</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "The best admission decision is the one we never regret."
         </p>
       </div>
@@ -508,9 +554,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">End-to-end academic visibility</span>
           to reduce bottlenecks and
-          <span class="text-brand font-medium">manage peak semesters</span>.
+          <span class="text-gold font-medium">manage peak semesters</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Control matters most when pressure is highest."
         </p>
       </div>
@@ -521,9 +567,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Faculty-level intelligence</span>
           to identify gaps and
-          <span class="text-brand font-medium">intervene before decline</span>.
+          <span class="text-gold font-medium">intervene before decline</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Show me where to intervene — and why."
         </p>
       </div>
@@ -534,9 +580,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Real-time fee visibility</span>
           to detect
-          <span class="text-brand font-medium">cash-flow risk early</span>.
+          <span class="text-gold font-medium">cash-flow risk early</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "If I can't see risk early, I can't manage it."
         </p>
       </div>
@@ -547,9 +593,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Data-driven allocation</span>
           ensuring fairness and
-          <span class="text-brand font-medium">student retention</span>.
+          <span class="text-gold font-medium">student retention</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Support the right student at the right time."
         </p>
       </div>
@@ -560,9 +606,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Continuous quality signals</span>
           across learning, teaching, and
-          <span class="text-brand font-medium">compliance gaps</span>.
+          <span class="text-gold font-medium">compliance gaps</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Quality is not an event. It's a signal."
         </p>
       </div>
@@ -573,9 +619,9 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Centralized research insight</span>
           for grants, publications, and
-          <span class="text-brand font-medium">institutional impact</span>.
+          <span class="text-gold font-medium">institutional impact</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Research shouldn't just be counted — it should be steered."
         </p>
       </div>
@@ -586,31 +632,32 @@
         <p class="mt-6 text-gray-700 leading-relaxed">
           <span class="font-medium text-gray-900">Early alerts and insights</span>
           to improve teaching and
-          <span class="text-brand font-medium">student success</span>.
+          <span class="text-gold font-medium">student success</span>.
         </p>
-        <p class="mt-6 text-sm italic text-brand font-semibold border-t pt-4">
+        <p class="mt-6 text-sm italic text-gold font-semibold border-t border-lavender/30 pt-4">
           "Notice and support students before they fall."
         </p>
       </div>
 
     </div>
     <div class="mt-12 text-center">
-      <a href="../page/contactus.html" class="bg-brand text-white px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-shadow inline-block text-center font-medium">
-        Get Started
+      <a href="../page/BookDemo.html" class="bg-gold text-plum px-8 py-4 rounded-xl shadow-md hover:bg-gold/90 transition-colors inline-block text-center font-medium">
+        Book Demo
       </a>
     </div>
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="bg-brand text-white py-16">
+<section class="bg-gradient-to-r from-plum via-purple-800 to-plum text-offwhite py-16">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold">See your university before problems appear</h2>
+    <h2 class="text-4xl font-bold">Make informed decisions–before problems become crises.
+</h2>
     <p class="mt-4 text-lg opacity-90">
       Experience predictive governance with Ustadex Analytics.
     </p>
-    <a href="../page/contactus.html" class="mt-8 bg-white text-brand px-10 py-4 rounded-xl font-semibold inline-block text-center">
-      Get Started
+    <a href="../page/BookDemo.html" class="mt-8 bg-ivory text-plum px-10 py-4 rounded-xl font-semibold hover:bg-gold transition-colors inline-block text-center">
+      Book Demo
     </a>
   </div>
 </section>
@@ -634,7 +681,7 @@
   function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoFrame');
-    iframe.src = 'https://www.youtube.com/embed/CKk-NivJPwo?autoplay=1';
+    iframe.src = 'https://www.youtube.com/embed/nq3DLo65EOw?autoplay=1';
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
