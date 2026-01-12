@@ -185,14 +185,20 @@
     }
     
     .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: white;
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 12px;
       font-size: 12px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      text-align: center;
+      min-height: 32px;
+      box-sizing: border-box;
     }
     
     .discount-text {
@@ -200,6 +206,88 @@
       font-size: 13px;
       margin-top: 4px;
       line-height: 1.5;
+    }
+    
+    /* Billing Toggle */
+    .package-toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    
+    .billing-toggle-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      flex: 1;
+      text-align: center;
+    }
+    
+    .billing-toggle-label.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    
+    .toggle-switch.monthly {
+      background: #cbd5e1;
+    }
+    
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: white;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .toggle-switch.monthly::after {
+      transform: translateX(20px);
+    }
+    
+    .discount-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-left: 4px;
+      text-transform: uppercase;
+    }
+    
+    .billing-period {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    
+    .billing-period.annual {
+      color: var(--primary);
     }
 
     .price {
@@ -408,13 +496,22 @@
     <!-- Starter -->
     <div class="card">
       <div>
+        <div style="margin-bottom: 12px;">
+          <span class="badge">First Month Free - No Credit Card Required</span>
+        </div>
         <h3>Starter</h3>
         <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Perfect for small teams getting started</p>
-        <div style="margin-bottom: 12px;">
-          <span class="badge">First Month Free</span>
+        
+        <!-- Billing Toggle for Starter -->
+        <div class="package-toggle-container">
+          <span class="billing-toggle-label" id="starterMonthlyLabel">Monthly</span>
+          <div class="toggle-switch" id="starterToggle"></div>
+          <span class="billing-toggle-label active" id="starterAnnualLabel">Annual <span class="discount-badge">30% OFF</span></span>
         </div>
-        <div class="price">$5<span>/month</span></div>
-        <p class="discount-text" style="margin-bottom: 24px;">30% discount annually<br/>No credit card required to start</p>
+        
+        <div class="price" id="starterPrice">$3.50<span>/month</span></div>
+        <p class="billing-period annual" id="starterBilling" style="margin-bottom: 8px;">Billed annually</p>
+        <p class="discount-text" id="starterDiscount" style="margin-bottom: 24px; display: block;">Save 30% annually</p>
       </div>
 
       <ul>
@@ -434,10 +531,20 @@
     <!-- Professional -->
     <div class="card highlight">
       <div>
+        <div style="margin-bottom: 12px; height: 32px;"></div>
         <h3>Professional</h3>
         <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Operational analytics for growing teams</p>
-        <div class="price">$10<span>/month</span></div>
-        <p class="discount-text" style="margin-bottom: 24px;">30% discount annually</p>
+        
+        <!-- Billing Toggle for Professional -->
+        <div class="package-toggle-container">
+          <span class="billing-toggle-label" id="professionalMonthlyLabel">Monthly</span>
+          <div class="toggle-switch" id="professionalToggle"></div>
+          <span class="billing-toggle-label active" id="professionalAnnualLabel">Annual <span class="discount-badge">30% OFF</span></span>
+        </div>
+        
+        <div class="price" id="professionalPrice">$7<span>/month</span></div>
+        <p class="billing-period annual" id="professionalBilling" style="margin-bottom: 8px;">Billed annually</p>
+        <p class="discount-text" id="professionalDiscount" style="margin-bottom: 24px; display: block;">Save 30% annually</p>
       </div>
 
       <ul>
@@ -535,6 +642,112 @@
     </p>
   </div>
 </footer>
+
+<script>
+  // Pricing data
+  const pricing = {
+    starter: {
+      monthly: 5,
+      annual: 3.50
+    },
+    professional: {
+      monthly: 10,
+      annual: 7
+    }
+  };
+
+  // Initialize toggle states (annual by default for both)
+  let starterIsAnnual = true;
+  let professionalIsAnnual = true;
+
+  // Get DOM elements for Starter
+  const starterToggle = document.getElementById('starterToggle');
+  const starterMonthlyLabel = document.getElementById('starterMonthlyLabel');
+  const starterAnnualLabel = document.getElementById('starterAnnualLabel');
+  const starterPrice = document.getElementById('starterPrice');
+  const starterBilling = document.getElementById('starterBilling');
+  const starterDiscount = document.getElementById('starterDiscount');
+
+  // Get DOM elements for Professional
+  const professionalToggle = document.getElementById('professionalToggle');
+  const professionalMonthlyLabel = document.getElementById('professionalMonthlyLabel');
+  const professionalAnnualLabel = document.getElementById('professionalAnnualLabel');
+  const professionalPrice = document.getElementById('professionalPrice');
+  const professionalBilling = document.getElementById('professionalBilling');
+  const professionalDiscount = document.getElementById('professionalDiscount');
+
+  // Update Starter pricing display
+  function updateStarterPricing() {
+    if (starterIsAnnual) {
+      // Annual billing (with discount)
+      starterPrice.innerHTML = `$${pricing.starter.annual.toFixed(2)}<span>/month</span>`;
+      starterBilling.textContent = 'Billed annually';
+      starterBilling.classList.add('annual');
+      starterDiscount.style.display = 'block';
+      
+      // Update toggle UI
+      starterToggle.classList.remove('monthly');
+      starterMonthlyLabel.classList.remove('active');
+      starterAnnualLabel.classList.add('active');
+    } else {
+      // Monthly billing (no discount)
+      starterPrice.innerHTML = `$${pricing.starter.monthly}<span>/month</span>`;
+      starterBilling.textContent = 'Billed monthly';
+      starterBilling.classList.remove('annual');
+      starterDiscount.style.display = 'none';
+      
+      // Update toggle UI
+      starterToggle.classList.add('monthly');
+      starterMonthlyLabel.classList.add('active');
+      starterAnnualLabel.classList.remove('active');
+    }
+  }
+
+  // Update Professional pricing display
+  function updateProfessionalPricing() {
+    if (professionalIsAnnual) {
+      // Annual billing (with discount)
+      professionalPrice.innerHTML = `$${pricing.professional.annual.toFixed(2)}<span>/month</span>`;
+      professionalBilling.textContent = 'Billed annually';
+      professionalBilling.classList.add('annual');
+      professionalDiscount.style.display = 'block';
+      
+      // Update toggle UI
+      professionalToggle.classList.remove('monthly');
+      professionalMonthlyLabel.classList.remove('active');
+      professionalAnnualLabel.classList.add('active');
+    } else {
+      // Monthly billing (no discount)
+      professionalPrice.innerHTML = `$${pricing.professional.monthly}<span>/month</span>`;
+      professionalBilling.textContent = 'Billed monthly';
+      professionalBilling.classList.remove('annual');
+      professionalDiscount.style.display = 'none';
+      
+      // Update toggle UI
+      professionalToggle.classList.add('monthly');
+      professionalMonthlyLabel.classList.add('active');
+      professionalAnnualLabel.classList.remove('active');
+    }
+  }
+
+  // Toggle Starter billing period
+  starterToggle.addEventListener('click', function() {
+    starterIsAnnual = !starterIsAnnual;
+    updateStarterPricing();
+  });
+
+  // Toggle Professional billing period
+  professionalToggle.addEventListener('click', function() {
+    professionalIsAnnual = !professionalIsAnnual;
+    updateProfessionalPricing();
+  });
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    updateStarterPricing();
+    updateProfessionalPricing();
+  });
+</script>
 
 </body>
 </html>
