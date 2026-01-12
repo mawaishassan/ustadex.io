@@ -149,6 +149,7 @@
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       position: relative;
+      overflow: visible;
     }
     
     .card:hover {
@@ -188,16 +189,17 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
       color: white;
-      padding: 6px 14px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
+      padding: 8px 24px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       margin-bottom: 12px;
       line-height: 1.4;
       text-align: center;
-      min-height: 32px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
       box-sizing: border-box;
     }
     
@@ -289,6 +291,36 @@
     
     .billing-period.annual {
       color: var(--primary);
+    }
+    
+    .stamp-image {
+      position: absolute;
+      right: 0;
+      top: -10px;
+      transform: rotate(-8deg);
+      width: 160px;
+      height: auto;
+      z-index: 1;
+      opacity: 0.95;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .stamp-image:hover {
+      transform: rotate(-6deg) scale(1.05);
+    }
+    
+    @media (max-width: 1200px) {
+      .stamp-image {
+        width: 140px;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .stamp-image {
+        display: none;
+      }
     }
 
     .price {
@@ -497,9 +529,6 @@
     <!-- Starter -->
     <div class="card">
       <div>
-        <div style="margin-bottom: 12px;">
-          <span class="badge">First Month Free - No Credit Card Required</span>
-        </div>
         <h3>Starter</h3>
         <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Perfect for small teams getting started</p>
         
@@ -511,7 +540,12 @@
         </div>
         
         <div class="price" id="starterPrice">$3.50<span>/month</span></div>
-        <p class="billing-period annual" id="starterBilling" style="margin-bottom: 8px;">Billed annually</p>
+        <div style="position: relative; margin-bottom: 8px; padding-right: 170px;">
+          <p class="billing-period annual" id="starterBilling" style="margin-bottom: 0; display: inline-block;">
+            Billed annually
+          </p>
+          <img src="../images/first_month_free_stamp.png" alt="First Month Free Stamp" class="stamp-image" />
+        </div>
         <p class="discount-text" id="starterDiscount" style="margin-bottom: 24px; display: block;">Save 30% annually</p>
       </div>
 
@@ -532,7 +566,6 @@
     <!-- Professional -->
     <div class="card highlight">
       <div>
-        <div style="margin-bottom: 12px; height: 32px;"></div>
         <h3>Professional</h3>
         <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Operational analytics for growing teams</p>
         
