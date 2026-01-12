@@ -96,123 +96,141 @@
     .hero-section {
       background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
       color: white;
-      padding: 35px 20px;
+      padding: 60px 20px 50px;
       margin-bottom: 0;
     }
     
     .hero-section h1 {
       color: white;
-      font-size: 40px;
-      margin-bottom: 12px;
+      font-size: 42px;
+      margin-bottom: 16px;
+      font-weight: 800;
     }
     
     .hero-section p {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 0;
-    }
-    
-    .transition-section {
-      background: white;
-      padding: 24px 20px;
-      text-align: center;
-    }
-    
-    .transition-section h2 {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-    
-    .transition-section p {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 600px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 19px;
+      max-width: 750px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
     /* Pricing */
     .pricing-section {
       background: var(--bg);
-      padding: 30px 20px;
+      padding: 60px 20px;
+      margin-top: 0;
     }
     
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-      max-width: 1100px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 0;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
+    }
+    
+    @media (min-width: 1024px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .card {
       background: #fff;
       border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
+      border-radius: 24px;
+      padding: 40px 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      position: relative;
     }
     
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+      border-color: rgba(37, 99, 235, 0.2);
     }
 
     .card.highlight {
       border: 3px solid var(--primary);
-      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+      box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.25), 0 10px 20px -5px rgba(37, 99, 235, 0.15);
       position: relative;
+      transform: scale(1.02);
+    }
+    
+    .card.highlight:hover {
+      transform: translateY(-12px) scale(1.02);
     }
     
     .card.highlight::before {
       content: "Most Popular";
       position: absolute;
-      top: -12px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
       color: white;
-      padding: 6px 20px;
-      border-radius: 20px;
+      padding: 8px 24px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .discount-text {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.5;
     }
 
     .price {
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 800;
-      margin: 16px 0;
+      margin: 20px 0 12px;
       color: var(--dark);
       line-height: 1;
+      letter-spacing: -0.02em;
     }
     
     .price span {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 500;
       color: var(--muted);
+      margin-left: 4px;
     }
 
     ul {
       padding-left: 0;
-      margin: 24px 0;
+      margin: 28px 0;
       list-style: none;
+      flex-grow: 1;
     }
 
     ul li {
-      margin-bottom: 12px;
-      padding-left: 28px;
+      margin-bottom: 14px;
+      padding-left: 32px;
       position: relative;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--dark);
     }
     
@@ -220,9 +238,17 @@
       content: "✓";
       position: absolute;
       left: 0;
+      top: 2px;
       color: var(--primary);
       font-weight: 700;
-      font-size: 18px;
+      font-size: 20px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
     }
 
     /* Buttons */
@@ -317,8 +343,8 @@
 
     /* FAQ */
     .faq {
-      margin-top: 50px;
-      padding: 40px 20px;
+      margin-top: 80px;
+      padding: 60px 20px;
       background: white;
     }
     
@@ -369,17 +395,8 @@
   <div class="container center">
     <h1>Simple Pricing. Powerful Decisions.</h1>
     <p>
-      Ustadex is a guided decision intelligence platform.
-      Every engagement begins with a conversation.
+      Start with our Starter plan—first month free, no credit card required. All plans include our core decision intelligence features.
     </p>
-  </div>
-</section>
-
-<!-- TRANSITION -->
-<section class="transition-section">
-  <div class="container">
-    <h2>Choose Your Plan</h2>
-    <p>Start with a free demo or jump into a plan that fits your needs. All plans include our core decision intelligence features.</p>
   </div>
 </section>
 
@@ -388,46 +405,53 @@
   <div class="container">
   <div class="pricing-grid">
 
-    <!-- Demo -->
+    <!-- Starter -->
     <div class="card">
       <div>
-        <h3>Demo</h3>
-        <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px;">Evaluation & proof-of-value</p>
-        <div class="price">Free</div>
+        <h3>Starter</h3>
+        <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Perfect for small teams getting started</p>
+        <div style="margin-bottom: 12px;">
+          <span class="badge">First Month Free</span>
+        </div>
+        <div class="price">$5<span>/month</span></div>
+        <p class="discount-text" style="margin-bottom: 24px;">30% discount annually<br/>No credit card required to start</p>
       </div>
 
       <ul>
-        <li>1 data source</li>
-        <li>1 dashboard</li>
-        <li>10,000 rows · 10 columns</li>
+        <li>2 data sources</li>
+        <li>5 dashboards per data source</li>
+        <li>20,000 rows per data source</li>
+        <li>10 columns maximum</li>
         <li>1,000 vector entities</li>
-        <li>5 AI analytics via chat</li>
-        <li>100K consumable AI tokens</li>
+        <li>2 stakeholders</li>
+        <li>50 AI analytics via chat</li>
+        <li>100K consumable AI tokens per month</li>
       </ul>
 
-      <a href="BookDemo.html" class="btn btn-outline">Book Demo</a>
+      <a href="contactus.html" class="btn btn-outline">Get Started</a>
     </div>
 
     <!-- Professional -->
     <div class="card highlight">
       <div>
         <h3>Professional</h3>
-        <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px;">Operational analytics for teams</p>
-        <div class="price">$5<span>/month</span></div>
+        <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px;">Operational analytics for growing teams</p>
+        <div class="price">$10<span>/month</span></div>
+        <p class="discount-text" style="margin-bottom: 24px;">30% discount annually</p>
       </div>
 
       <ul>
         <li>5 data sources</li>
-        <li>300,000 rows per source</li>
-        <li>50 columns per source</li>
+        <li>10 dashboards per data source</li>
+        <li>300,000 rows per data source</li>
+        <li>50 columns maximum per data source</li>
         <li>25,000 vector entities</li>
-        <li>15 dashboards</li>
-        <li>5 stakeholders</li>
-        <li>50 AI analytics via chat</li>
-        <li>1M consumable AI tokens</li>
+        <li>10 stakeholders</li>
+        <li>Unlimited AI analytics via chat</li>
+        <li>500K consumable AI tokens per month</li>
       </ul>
 
-      <a href="BookDemo.html" class="btn btn-primary">Book Demo</a>
+      <a href="contactus.html" class="btn btn-primary">Get Started</a>
     </div>
 
     <!-- Enterprise -->
@@ -439,15 +463,18 @@
       </div>
 
       <ul>
-        <li>Unlimited data sources & dashboards</li>
-        <li>Millions of rows per source</li>
+        <li>Unlimited data sources</li>
+        <li>Unlimited dashboards per data source</li>
+        <li>Unlimited rows per data source</li>
+        <li>Unlimited columns per data source</li>
+        <li>Unlimited vector entities</li>
         <li>Unlimited stakeholders</li>
-        <li>Unlimited AI analytics</li>
-        <li>5M initial AI tokens</li>
-        <li>SLA & private deployment</li>
+        <li>Unlimited AI analytics via chat</li>
+        <li>5M starting consumable AI tokens</li>
+        <li>SLA & custom deployment</li>
       </ul>
 
-      <a href="BookDemo.html" class="btn btn-secondary">Book Demo</a>
+      <a href="contactus.html" class="btn btn-secondary">Get Started</a>
     </div>
 
   </div>
@@ -481,19 +508,32 @@
   </div>
 
   <div class="faq-item">
-    <h4>Is Professional really $5 per month?</h4>
+    <h4>What's included in the Starter plan?</h4>
     <p>
-      Yes. The subscription unlocks the platform.
-      AI usage is governed by token consumption.
+      The Starter plan includes 2 data sources, 5 dashboards per source, 20,000 rows per data source, 
+      and 100K AI tokens per month. The first month is free, and no credit card is required to get started.
+    </p>
+  </div>
+  
+  <div class="faq-item">
+    <h4>How does the annual discount work?</h4>
+    <p>
+      When you choose annual billing, you receive a 30% discount on the monthly rate, 
+      making it even more cost-effective for long-term use.
     </p>
   </div>
   <div style="margin-top: 32px; text-align: center; width: 100%;">
-    <a href="BookDemo.html" class="btn btn-primary" style="display: inline-block; padding: 16px 40px; font-size: 18px;">Book Demo</a>
+    <a href="contactus.html" class="btn btn-primary" style="display: inline-block; padding: 16px 40px; font-size: 18px;">Get Started</a>
   </div>
 </section>
 
 <footer>
-  © 2026 Ustadex · AI-Powered Decision Intelligence
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+    <p style="margin-bottom: 12px;">© 2026 Ustadex · AI-Powered Decision Intelligence</p>
+    <p style="font-size: 13px;">
+      <a href="privacy.html" style="color: var(--muted); text-decoration: underline; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+    </p>
+  </div>
 </footer>
 
 </body>
